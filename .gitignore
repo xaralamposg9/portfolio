@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Vite cache
+.vite/
+
+# Puppeteer / OS noise
+.cache/
+*.log
+.DS_Store
+Thumbs.db
+
+# QA screenshots (local visual checks only)
+qa/
+
+# Source assets kept local (raw CV + original photo). The site uses the
+# optimized public/headshot.jpg, so these aren't needed in a public repo.
+# Remove this line if you want them committed.
+brand_assets/
+
+# Editor
+.vscode/
+.idea/
+
+# Local env
+.env
+.env.local

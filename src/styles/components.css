@@ -385,3 +385,152 @@
      phone number and the hyphen in the handle were causing wraps. */
   white-space: nowrap;
 }
+
+/* ===================== CAMPAIGNS & EVENTS ===================== */
+/* Google Ads panel: intro copy on the left, animated stats on the right.
+   Collapses to a single column on small screens. */
+.ads-panel {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--surface-2), var(--surface));
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
+}
+@media (min-width: 860px) {
+  .ads-panel {
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    padding: 2.75rem;
+  }
+}
+.ads-panel__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.85rem;
+}
+.ads-panel__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+.ads-panel__copy {
+  color: var(--text-soft);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.ads-panel__copy strong {
+  color: var(--text);
+}
+/* Campaign-type pills reuse the .tags look */
+.ads-panel__types {
+  margin-top: 0.25rem;
+}
+
+/* Stats column inside the ads panel */
+.ads-stats {
+  display: grid;
+  gap: 1.5rem;
+}
+@media (min-width: 480px) and (max-width: 859px) {
+  .ads-stats {
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+  }
+}
+.ads-stats .stat__num {
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  background: linear-gradient(140deg, var(--accent-bright), var(--accent-glow));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Sub-heading that introduces the events grid */
+.campaigns__sub {
+  margin: 3.5rem 0 1.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Events grid + cards */
+.events__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 560px) {
+  .events__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 920px) {
+  .events__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.event-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 1.5rem 1.4rem 1.6rem;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
+  /* Only transform/box-shadow/border animate (per motion guardrails) */
+  transition: transform 0.4s var(--ease-spring), border-color 0.4s var(--ease-out),
+    box-shadow 0.4s var(--ease-out);
+}
+.event-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-lg), var(--shadow-accent);
+}
+.event-card__meta {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+.event-card__name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+.event-card__desc {
+  font-size: var(--fs-sm);
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+/* Role pills — auto-pushed to the bottom of the card */
+.event-card__roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+  padding-top: 0.85rem;
+}
+.event-card__roles li {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.02em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 100px;
+  background: rgba(77, 141, 255, 0.08);
+  border: 1px solid rgba(77, 141, 255, 0.2);
+  color: var(--accent-bright);
+}

@@ -31,12 +31,19 @@ export function renderProjects() {
       <a class="pcard" href="${p.url}" target="_blank" rel="noopener"
          data-cursor="link" data-stack="${stack}"
          aria-label="${p.name} — open live site (opens in new tab)">
-        <span class="pcard__arrow">${ARROW}</span>
-        ${p.category ? `<p class="pcard__cat">${p.category}</p>` : ''}
-        <h3 class="pcard__name">${p.name}</h3>
-        <div class="pcard__foot">
-          <span class="pcard__host">${host}</span>
-          ${platform ? `<span class="pcard__platform pcard__platform--${stack}">${platform}</span>` : ''}
+        <div class="pcard__media">
+          <img src="./projects/${p.slug}.jpg"
+               alt="Screenshot of the ${p.name} website"
+               width="640" height="400" loading="lazy" decoding="async" />
+          <span class="pcard__arrow">${ARROW}</span>
+        </div>
+        <div class="pcard__body">
+          ${p.category ? `<p class="pcard__cat">${p.category}</p>` : ''}
+          <h3 class="pcard__name">${p.name}</h3>
+          <div class="pcard__foot">
+            <span class="pcard__host">${host}</span>
+            ${platform ? `<span class="pcard__platform pcard__platform--${stack}">${platform}</span>` : ''}
+          </div>
         </div>
       </a>`
   }).join('')

@@ -83,13 +83,14 @@ const doc = new Document({
 
       // Summary
       sectionTitle('Professional Summary'),
-      body([t('Web developer and digital marketing executive with 3+ years at Fameline Holding Group, pairing hands-on web development with full-funnel marketing. Manages a portfolio of 50+ live websites and has designed and built 30+ sites across three stacks — WordPress (Elementor Pro, WPBakery, Divi), MODX Revolution, and custom sites hand-coded in VS Code with Git/GitHub and AI-assisted workflows. Runs paid media on Google Ads (Search to Performance Max), email marketing in Mailchimp and Brevo, SEO, and social — backed by Google and AI certifications.')]),
+      body([t('Web developer and digital marketing executive with 3+ years at Fameline Holding Group, pairing hands-on web development with full-funnel marketing. Manages a portfolio of 50+ live websites: builds on WordPress (Elementor Pro, WPBakery, Divi) and hand-codes custom sites in VS Code with Git/GitHub and AI-assisted workflows, and maintains and develops MODX Revolution sites. Runs paid media on Google Ads (Search to Performance Max), email marketing in Mailchimp and Brevo, SEO, and social — backed by Google and AI certifications.')]),
 
       // Experience
       sectionTitle('Experience'),
       jobHead('Digital Marketing Executive', 'Jan 2025 – Present'),
       org('Fameline Holding Group · Limassol, Cyprus'),
       bullet('Design, build, and maintain WordPress sites (Elementor Pro, WPBakery & other builders) and develop custom sites in VS Code with Git/GitHub and AI-assisted coding (e.g. Claude Code).'),
+      bullet('Maintain and develop MODX Revolution sites across the group’s brands — edits, updates, and new content.'),
       bullet('Manage a portfolio of 50+ live websites — updates, performance, uptime, and security across the group’s brands.'),
       bullet('Plan and run paid campaigns on Google Ads (Search, Display, Video, Demand Gen & Performance Max), Meta & LinkedIn — 440K+ impressions and 16K+ clicks/engagements at a 3.6% average interaction rate.'),
       bullet('Schedule the group’s social media and build & send email campaigns in Mailchimp and Brevo.'),
@@ -115,8 +116,8 @@ const doc = new Document({
         new TextRun({ text: '12 · WordPress + Elementor     13 · MODX Revolution     6 · Custom-coded (VS Code)', bold: true, size: 19, color: ACCENT }),
       ]),
       body([
-        new TextRun({ text: '30+ live corporate websites', bold: true, size: 19, color: BODY }),
-        t(' designed and built for the Fameline Holding Group brands and beyond, including Fameline Holding Group, Fameline Mission Solutions, OneNet Group, MIE Group, Euploia Partners, NorthTide and Kozy Developers (WordPress); Fameline Energy, Sheerline, HSS Marine Safety and Euploia Drydocks (MODX); and the hand-coded Albaflux, Seaflux and Cargo Logistics brands (custom). Full list with live links on the portfolio.'),
+        new TextRun({ text: '18 live corporate websites designed and built', bold: true, size: 19, color: BODY }),
+        t(' — on WordPress + Elementor (Fameline Holding Group, Fameline Mission Solutions, OneNet Group, MIE Group, Euploia Partners, NorthTide, Kozy Developers) and hand-coded in VS Code (Albaflux, Seaflux and the Cargo Logistics brands). I also maintain and develop 13 MODX Revolution sites (Fameline Energy, Sheerline, HSS Marine Safety, Euploia Drydocks, and more). Full list with live links on the portfolio.'),
       ]),
 
       // Education & certs

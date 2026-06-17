@@ -244,27 +244,37 @@
   border-top: 1px solid var(--line);
   padding-top: 2rem;
 }
+/* Vertical scroll cue pinned to the right edge, centred vertically — keeps
+   it clear of the hero stats row (which used to sit under the old
+   bottom-centre placement). */
 .hero__scroll {
   position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 1.75rem;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.7rem;
   font-family: var(--font-mono);
   font-size: var(--fs-xs);
-  letter-spacing: 0.2em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--text-mute);
+}
+.hero__scroll span:first-child {
+  writing-mode: vertical-rl; /* reads top-to-bottom down the edge */
 }
 .hero__scroll-line {
   width: 1px;
   height: 42px;
   background: linear-gradient(var(--accent), transparent);
   animation: scrollLine 2s var(--ease-out) infinite;
+}
+/* Decorative only — hide on narrower screens to avoid crowding content. */
+@media (max-width: 768px) {
+  .hero__scroll { display: none; }
 }
 @keyframes scrollLine {
   0% { transform: scaleY(0); transform-origin: top; }

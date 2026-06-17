@@ -368,6 +368,11 @@
   border-color: rgba(110, 231, 255, 0.24);
   color: var(--accent-glow);
 }
+.pcard__platform--custom {
+  background: rgba(167, 139, 250, 0.12);
+  border-color: rgba(167, 139, 250, 0.26);
+  color: #c4b5fd;
+}
 
 /* ===================== CREDENTIALS LIST ===================== */
 .cred-list {

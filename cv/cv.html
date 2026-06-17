@@ -123,6 +123,15 @@
     .tight { font-size: 0.86rem; color: #2b313b; }
     .tight b { font-weight: 600; }
 
+    /* Keep blocks from being split across the page break. Experience is
+       intentionally NOT in this list — it's taller than the space left on
+       page 1, so it must be allowed to flow; its individual jobs stay whole. */
+    .keep { break-inside: avoid; }
+    .job { break-inside: avoid; }
+    .kv { break-inside: avoid; }
+    .skill-row { break-inside: avoid; }
+    .sec-title { break-after: avoid; } /* never orphan a heading at page bottom */
+
     @page { size: A4; margin: 0; }
     @media print { .page { padding: 38px 44px; } }
   </style>
@@ -202,7 +211,7 @@
       </div>
     </section>
 
-    <section>
+    <section class="keep">
       <h2 class="sec-title">Selected Work</h2>
       <div class="stat-line">
         <span class="stat-pill">12 · WordPress + Elementor</span>
@@ -220,7 +229,7 @@
       </p>
     </section>
 
-    <section>
+    <section class="keep">
       <h2 class="sec-title">Education &amp; Certifications</h2>
       <div class="grid2">
         <div>
@@ -248,7 +257,7 @@
       </div>
     </section>
 
-    <section>
+    <section class="keep">
       <h2 class="sec-title">Skills</h2>
       <p class="skill-row"><b>Web Development:</b> WordPress (Elementor Pro, WPBakery, Divi), MODX Revolution, WooCommerce, HTML/CSS, JavaScript, responsive / mobile-first, page-speed optimization, Git &amp; GitHub, VS Code, AI-assisted coding, website maintenance, cPanel / DNS.</p>
       <p class="skill-row"><b>Marketing &amp; SEO:</b> Technical &amp; on-page SEO, Google Ads, Meta &amp; LinkedIn Ads, paid social, social media management &amp; scheduling, email marketing (Mailchimp, Brevo), campaign management, Google Tag Manager &amp; Analytics, Google Business / local SEO, YouTube, audience growth.</p>

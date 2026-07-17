@@ -132,8 +132,10 @@
     .skill-row { break-inside: avoid; }
     .sec-title { break-after: avoid; } /* never orphan a heading at page bottom */
 
-    @page { size: A4; margin: 0; }
-    @media print { .page { padding: 38px 44px; } }
+    /* Margins come from the PDF renderer (leaves room for the running
+       header/footer); page padding only handles horizontal + a little top. */
+    @page { size: A4; }
+    @media print { .page { padding: 2px 40px 16px; } }
   </style>
 </head>
 <body>

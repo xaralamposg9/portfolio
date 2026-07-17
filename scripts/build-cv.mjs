@@ -28,11 +28,15 @@ await page.goto(pathToFileURL(SRC).href, { waitUntil: 'networkidle0', timeout: 3
 // Give the web fonts a beat to finish painting.
 await new Promise((r) => setTimeout(r, 800))
 
+const hf = 'font-family:Arial,sans-serif;font-size:8px;color:#9aa8b8;width:100%;padding:0 12mm;'
 await page.pdf({
   path: OUT,
   format: 'A4',
   printBackground: true,
-  preferCSSPageSize: true,
+  displayHeaderFooter: true,
+  margin: { top: '15mm', bottom: '13mm', left: '0', right: '0' },
+  headerTemplate: `<div style="${hf}">Charalampos Photiou — Web Developer &amp; Digital Marketing Executive</div>`,
+  footerTemplate: `<div style="${hf}text-align:right;">Page <span class="pageNumber"></span> / <span class="totalPages"></span></div>`,
 })
 
 await browser.close()

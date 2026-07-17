@@ -138,7 +138,7 @@ const doc = new Document({
       body([new TextRun({ text: 'Web Development: ', bold: true, size: 19, color: INK }), t('WordPress (Elementor Pro, WPBakery, Divi), MODX Revolution, WooCommerce, HTML/CSS, JavaScript, responsive / mobile-first, page-speed optimization, Git & GitHub, VS Code, AI-assisted coding, website maintenance, cPanel / DNS.')]),
       body([new TextRun({ text: 'Marketing & SEO: ', bold: true, size: 19, color: INK }), t('Technical & on-page SEO, Google Ads, Meta & LinkedIn Ads, paid social, social media management & scheduling, email marketing (Mailchimp, Brevo), campaign management, Google Tag Manager & Analytics, Google Business / local SEO, YouTube, audience growth.')]),
       body([new TextRun({ text: 'Design & Video: ', bold: true, size: 19, color: INK }), t('Photoshop, Illustrator, Premiere Pro, After Effects, DaVinci Resolve, Figma, Adobe XD, logo design, typography, video editing, product photography.')]),
-      body([new TextRun({ text: 'AI & Tools: ', bold: true, size: 19, color: INK }), t('AI strategy & integration, data-driven decisions, business intelligence; ChatGPT, Google Gemini, Claude (Code & Cowork).')]),
+      body([new TextRun({ text: 'AI & Tools: ', bold: true, size: 19, color: INK }), t('AI strategy & integration, data-driven decisions, business intelligence; ChatGPT, Google Gemini, Claude (Code, Cowork & design), Figma AI.')]),
 
       // Volunteering / Languages / Interests
       sectionTitle('Volunteering, Languages & Interests'),

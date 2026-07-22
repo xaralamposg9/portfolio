@@ -35,7 +35,7 @@ await page.pdf({
   printBackground: true,
   displayHeaderFooter: true,
   margin: { top: '15mm', bottom: '13mm', left: '0', right: '0' },
-  headerTemplate: `<div style="${hf}">Charalampos Photiou — Web Developer &amp; Digital Marketing Executive</div>`,
+  headerTemplate: `<div style="${hf}">Charalampos Photiou — Digital Marketing Executive · Web Development &amp; Paid Media</div>`,
   footerTemplate: `<div style="${hf}text-align:right;">Page <span class="pageNumber"></span> / <span class="totalPages"></span></div>`,
 })
 

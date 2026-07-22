@@ -68,7 +68,7 @@ const doc = new Document({
       }),
       new Paragraph({
         spacing: { after: 60 },
-        children: [new TextRun({ text: 'Web Developer & Digital Marketing Executive', bold: true, size: 24, color: ACCENT })],
+        children: [new TextRun({ text: 'Digital Marketing Executive · Web Development & Paid Media', bold: true, size: 24, color: ACCENT })],
       }),
       new Paragraph({
         spacing: { after: 40 },
@@ -93,7 +93,7 @@ const doc = new Document({
       org('Fameline Holding Group · Limassol, Cyprus'),
       bullet('Hand-code custom production websites in VS Code with Git/GitHub and AI-assisted workflows (Claude Code) — six live corporate sites shipped without a CMS.'),
       bullet('Design, build, and maintain WordPress sites (Elementor Pro, WPBakery & other builders); maintain and develop MODX Revolution sites across the group’s brands.'),
-      bullet('Manage a portfolio of 50+ live websites — updates, performance, uptime, and security across the group’s brands.'),
+      bullet('Manage a portfolio of 50+ live web properties across the group’s brands — updates, performance, uptime, and security; 31 selected sites are showcased with live links on my portfolio.'),
       bullet('Set up tracking & analytics with Google Tag Manager and Google Analytics 4 (GA4).'),
       bullet('Plan and run paid campaigns on Google Ads (Search, Display, Video, Demand Gen & Performance Max), Meta & LinkedIn — 440K+ impressions and 16K+ clicks at a 3.6% average interaction rate.'),
       bullet('Own the group’s social media calendar and build & send email campaigns in Mailchimp and Brevo.'),
@@ -116,7 +116,7 @@ const doc = new Document({
       ]),
       body([
         new TextRun({ text: '18 live corporate websites designed and built', bold: true, size: 19, color: BODY }),
-        t(' — on WordPress + Elementor (Fameline Holding Group, Fameline Mission Solutions, OneNet Group, MIE Group, Euploia Partners, NorthTide, Kozy Developers) and hand-coded in VS Code (Albaflux, Seaflux and the Cargo Logistics brands). I also maintain and develop 13 MODX Revolution sites (Fameline Energy, Sheerline, HSS Marine Safety, Euploia Drydocks, and more). Full list with live links: xaralamposg9.github.io/portfolio'),
+        t(' — on WordPress + Elementor (Fameline Holding Group, Fameline Mission Solutions, OneNet Group, MIE Group, Euploia Partners, NorthTide, Kozy Developers) and hand-coded in VS Code (Albaflux, Seaflux and the Cargo Logistics brands). I also maintain and develop 13 MODX Revolution sites (Fameline Energy, Sheerline, HSS Marine Safety, Euploia Drydocks, and more). These 31 sites are the selection I showcase from the 50+ web properties I manage — all with live links: xaralamposg9.github.io/portfolio'),
       ]),
 
       // Education & certs

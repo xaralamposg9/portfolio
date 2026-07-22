@@ -55,7 +55,7 @@ const doc = new Document({
       para([
         t('I am writing to apply for the '), ph('[Job title]'), t(' role at '), ph('[Company]'),
         t(', which I saw on '), ph('[where you found it]'),
-        t('. I am a web developer and digital marketing executive at Fameline Holding Group, where since 2023 I have run the full stack of digital for a group of maritime and trading brands — from hand-coding production websites to running the campaigns that drive traffic to them.'),
+        t('. I am a web developer and digital marketing executive at Fameline Holding Group, where since 2023 I have run the full stack of digital for a group of maritime and trading brands, from hand-coding production websites to running the campaigns that drive traffic to them.'),
       ]),
 
       para([
@@ -64,7 +64,7 @@ const doc = new Document({
 
       para([
         ph('[One or two sentences about WHY THIS COMPANY — mention something specific: their product, a site of theirs you admire, their market. This sentence shows the letter is not a template.]'),
-        t(' I believe the combination of hands-on development and full-funnel marketing is exactly what lets one person own a website end to end — build it, rank it, and grow its audience.'),
+        t(' I believe the combination of hands-on development and full-funnel marketing is exactly what lets one person own a website end to end: build it, rank it, and grow its audience.'),
       ]),
 
       para([

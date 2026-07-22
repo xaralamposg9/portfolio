@@ -96,7 +96,7 @@ const doc = new Document({
       bullet('Manage a portfolio of 50+ live web properties across the group’s brands — updates, performance, uptime, and security; 31 selected sites are showcased with live links on my portfolio.'),
       bullet('Set up tracking & analytics with Google Tag Manager and Google Analytics 4 (GA4).'),
       bullet('Plan and run paid campaigns on Google Ads (Search, Display, Video, Demand Gen & Performance Max), Meta & LinkedIn — 440K+ impressions and 16K+ clicks at a 3.6% average interaction rate.'),
-      bullet('Own the group’s social media calendar and build & send email campaigns in Mailchimp and Brevo.'),
+      bullet('Own the group’s social media calendar and email marketing in Mailchimp and Brevo — campaigns to B2B lists of up to 8,000+ maritime contacts, top sends reaching ~50% opens and ~53% click-through.'),
       bullet('Grew the company’s LinkedIn audience from ~1,000 to 7,500+ targeted maritime-industry followers.'),
       bullet('Deliver digital marketing for the group’s flagship events (East Med Marine & Offshore Exhibition, Fameline Offshore Sailing Regatta) and CSR campaigns (Movember, World Cancer Day).'),
 

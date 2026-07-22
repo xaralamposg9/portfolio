@@ -43,7 +43,7 @@
     h1, h2, h3 { font-family: 'Bricolage Grotesque', Georgia, serif; }
 
     /* ---- Header ---- */
-    .head { border-bottom: 2px solid var(--ink); padding-bottom: 16px; }
+    .head { border-bottom: 2px solid var(--ink); padding-bottom: 13px; }
     .head h1 {
       font-size: 2.5rem;
       font-weight: 700;
@@ -66,21 +66,21 @@
     .head .contact span { color: var(--line); margin: 0 7px; }
 
     /* ---- Section ---- */
-    section { margin-top: 20px; }
+    section { margin-top: 17px; }
     .sec-title {
       font-size: 0.78rem;
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent);
-      padding-bottom: 5px;
-      margin-bottom: 11px;
+      padding-bottom: 4px;
+      margin-bottom: 9px;
       border-bottom: 1px solid var(--line);
     }
     .summary { font-size: 0.9rem; color: #2b313b; }
 
     /* ---- Experience ---- */
-    .job { margin-bottom: 14px; }
+    .job { margin-bottom: 12px; }
     .job:last-child { margin-bottom: 0; }
     .job__line {
       display: flex;
@@ -96,13 +96,10 @@
       white-space: nowrap;
       font-variant-numeric: tabular-nums;
     }
-    ul.points { margin: 6px 0 0; padding-left: 17px; }
-    ul.points li { font-size: 0.9rem; margin-bottom: 3px; color: #2b313b; }
+    ul.points { margin: 5px 0 0; padding-left: 17px; }
+    ul.points li { font-size: 0.9rem; margin-bottom: 2px; color: #2b313b; }
 
-    /* Single column on purpose: two-column PDFs scramble ATS text extraction */
-    .grid2 { display: grid; grid-template-columns: 1fr; gap: 0; }
-
-    .kv { font-size: 0.9rem; margin-bottom: 7px; }
+    .kv { font-size: 0.9rem; margin-bottom: 5px; }
     .kv b { font-weight: 600; }
     .kv .meta { color: var(--muted); font-size: 0.82rem; }
 
@@ -232,28 +229,12 @@
 
     <section class="keep">
       <h2 class="sec-title">Education &amp; Certifications</h2>
-      <div class="grid2">
-        <div>
-          <div class="kv">
-            <b>BSc in Multimedia &amp; Graphic Arts</b><br />
-            <span class="meta">Specialization in Multimedia</span><br />
-            <span class="meta">Cyprus University of Technology · Sep 2019 – Mar 2023</span>
-          </div>
-          <div class="kv">
-            <b>Languages</b><br />
-            <span class="meta">Greek (native) · English — IGCSE, University of Cambridge</span>
-          </div>
-          <div class="kv">
-            <b>Volunteering — YoungShip Cyprus</b><br />
-            <span class="meta">Active volunteer; supports planning and running networking &amp; industry events for the local maritime community.</span>
-          </div>
-        </div>
-        <div>
-          <div class="kv"><b>AI for Business Executives</b> <span class="meta">— Apriori (Oct 2024)</span></div>
-          <div class="kv"><b>Fundamentals of Digital Marketing</b> <span class="meta">— Google (Jun 2024)</span></div>
-          <div class="kv"><b>Google My Business</b> <span class="meta">— Google (Jun 2024)</span></div>
-        </div>
-      </div>
+      <div class="kv"><b>BSc in Multimedia &amp; Graphic Arts</b> <span class="meta">— Cyprus University of Technology · Sep 2019 – Mar 2023 · Specialization in Multimedia</span></div>
+      <div class="kv"><b>AI for Business Executives</b> <span class="meta">— Apriori (Oct 2024)</span></div>
+      <div class="kv"><b>Fundamentals of Digital Marketing</b> <span class="meta">— Google (Jun 2024)</span></div>
+      <div class="kv"><b>Google My Business</b> <span class="meta">— Google (Jun 2024)</span></div>
+      <div class="kv"><b>Languages</b> <span class="meta">— Greek (native) · English (IGCSE, University of Cambridge)</span></div>
+      <div class="kv"><b>Volunteering</b> <span class="meta">— YoungShip Cyprus · networking &amp; industry events for the local maritime community</span></div>
     </section>
 
     <section class="keep">

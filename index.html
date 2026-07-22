@@ -238,6 +238,11 @@ h1, h2{
   /* vertical centering via GSAP yPercent:-50 — CSS translate would be
      overwritten by the scrub tweens */
 }
+/* the list overlays the head (both absolute) — its transparent box must
+   not swallow clicks on the head's CTA buttons. The pillars themselves
+   stay interactive; while clip-hidden they can't be hit anyway. */
+#pillars.pinned .pillars-list{ pointer-events:none; }
+#pillars.pinned .pillars-list .pillar{ pointer-events:auto; }
 #pillars.pinned .pillar{ padding:1.15rem 0; }
 #pillars.pinned .pillar h3{ font-size:clamp(1.4rem,3vw,2.2rem); }
 #pillars.pinned .pillar p{ font-size:.92rem; margin:.5rem 0 .8rem; }

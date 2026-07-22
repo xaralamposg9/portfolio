@@ -79,38 +79,35 @@ const doc = new Document({
           new TextRun({ text: '  •  ', size: 17, color: MUTED }),
           new ExternalHyperlink({ link: 'https://www.linkedin.com/in/charalampos-fotiou-63120a286/', children: [new TextRun({ text: 'LinkedIn', size: 17, color: MUTED })] }),
           new TextRun({ text: '  •  ', size: 17, color: MUTED }),
-          new ExternalHyperlink({ link: 'https://xaralamposg9.github.io/portfolio/', children: [new TextRun({ text: 'Portfolio', size: 17, color: MUTED })] }),
+          new ExternalHyperlink({ link: 'https://xaralamposg9.github.io/portfolio/', children: [new TextRun({ text: 'xaralamposg9.github.io/portfolio', size: 17, color: MUTED })] }),
         ],
       }),
 
       // Summary
       sectionTitle('Professional Summary'),
-      body([t('Web developer and digital marketing executive with 3+ years at Fameline Holding Group, pairing hands-on web development with full-funnel marketing. Manages a portfolio of 50+ live websites: builds on WordPress (Elementor Pro, WPBakery, Divi) and hand-codes custom sites in VS Code with Git/GitHub and AI-assisted workflows, and maintains and develops MODX Revolution sites. Runs paid media on Google Ads (Search to Performance Max), email marketing in Mailchimp and Brevo, SEO, and social — backed by Google and AI certifications.')]),
+      body([t('Web developer and digital marketing executive at Fameline Holding Group since 2023. Hand-codes custom production websites in VS Code with Git/GitHub and AI-assisted workflows (Claude Code), builds on WordPress (Elementor Pro, WPBakery, Divi), and maintains and develops MODX Revolution sites — a portfolio of 50+ live websites. Runs paid media on Google Ads (Search to Performance Max), email marketing in Mailchimp and Brevo, SEO, and social — backed by Google and AI certifications.')]),
 
       // Experience
       sectionTitle('Experience'),
-      jobHead('Digital Marketing Executive', 'Feb 2025 – Present'),
+      jobHead('Digital Marketing Executive (Web Development & Paid Media)', 'Feb 2025 – Present'),
       org('Fameline Holding Group · Limassol, Cyprus'),
-      bullet('Design, build, and maintain WordPress sites (Elementor Pro, WPBakery & other builders) and develop custom sites in VS Code with Git/GitHub and AI-assisted coding (e.g. Claude Code).'),
-      bullet('Maintain and develop MODX Revolution sites across the group’s brands — edits, updates, and new content.'),
+      bullet('Hand-code custom production websites in VS Code with Git/GitHub and AI-assisted workflows (Claude Code) — six live corporate sites shipped without a CMS.'),
+      bullet('Design, build, and maintain WordPress sites (Elementor Pro, WPBakery & other builders); maintain and develop MODX Revolution sites across the group’s brands.'),
       bullet('Manage a portfolio of 50+ live websites — updates, performance, uptime, and security across the group’s brands.'),
-      bullet('Plan and run paid campaigns on Google Ads (Search, Display, Video, Demand Gen & Performance Max), Meta & LinkedIn — 440K+ impressions and 16K+ clicks/engagements at a 3.6% average interaction rate.'),
-      bullet('Schedule the group’s social media and build & send email campaigns in Mailchimp and Brevo.'),
+      bullet('Set up tracking & analytics with Google Tag Manager and Google Analytics 4 (GA4).'),
+      bullet('Plan and run paid campaigns on Google Ads (Search, Display, Video, Demand Gen & Performance Max), Meta & LinkedIn — 440K+ impressions and 16K+ clicks at a 3.6% average interaction rate.'),
+      bullet('Own the group’s social media calendar and build & send email campaigns in Mailchimp and Brevo.'),
       bullet('Grew the company’s LinkedIn audience from ~1,000 to 7,500+ targeted maritime-industry followers.'),
-      bullet('Help run the group’s flagship events (East Med Marine & Offshore Exhibition, Fameline Offshore Sailing Regatta) and CSR campaigns (Movember, World Cancer Day); organise the internal table-football charity tournament.'),
-      bullet('Set up tracking & analytics with Google Tag Manager and Google Analytics.'),
+      bullet('Deliver digital marketing for the group’s flagship events (East Med Marine & Offshore Exhibition, Fameline Offshore Sailing Regatta) and CSR campaigns (Movember, World Cancer Day).'),
 
-      jobHead('Junior Digital Marketing Officer', 'Sep 2023 – Feb 2025'),
+      jobHead('Junior Digital Marketing Officer (WordPress Development)', 'Sep 2023 – Feb 2025'),
       org('Fameline Holding Group · Limassol, Cyprus'),
       bullet('Built and updated WordPress websites and landing pages for the group’s brands.'),
-      bullet('Created graphics and scheduled social media posts to support marketing campaigns.'),
-      bullet('Helped with the group’s events and awareness campaigns — scheduling social posts and sending email campaigns.'),
+      bullet('Created graphics and scheduled social media posts supporting campaigns and group events.'),
 
       jobHead('Multimedia Graphic Designer (Internship)', 'Sep 2022 – Dec 2022'),
       org('MindLab · Limassol, Cyprus'),
-      bullet('Developed dynamic WordPress websites end to end, from concept to launch.'),
-      bullet('Curated and grew the company’s social media channels, boosting visibility and engagement.'),
-      bullet('Created content and campaigns that contributed to increased sales; captured product photography.'),
+      bullet('Built WordPress sites end to end and produced product photography and social content for client campaigns.'),
 
       // Selected work
       sectionTitle('Selected Work'),
@@ -119,7 +116,7 @@ const doc = new Document({
       ]),
       body([
         new TextRun({ text: '18 live corporate websites designed and built', bold: true, size: 19, color: BODY }),
-        t(' — on WordPress + Elementor (Fameline Holding Group, Fameline Mission Solutions, OneNet Group, MIE Group, Euploia Partners, NorthTide, Kozy Developers) and hand-coded in VS Code (Albaflux, Seaflux and the Cargo Logistics brands). I also maintain and develop 13 MODX Revolution sites (Fameline Energy, Sheerline, HSS Marine Safety, Euploia Drydocks, and more). Full list with live links on the portfolio.'),
+        t(' — on WordPress + Elementor (Fameline Holding Group, Fameline Mission Solutions, OneNet Group, MIE Group, Euploia Partners, NorthTide, Kozy Developers) and hand-coded in VS Code (Albaflux, Seaflux and the Cargo Logistics brands). I also maintain and develop 13 MODX Revolution sites (Fameline Energy, Sheerline, HSS Marine Safety, Euploia Drydocks, and more). Full list with live links: xaralamposg9.github.io/portfolio'),
       ]),
 
       // Education & certs
@@ -131,14 +128,12 @@ const doc = new Document({
       bullet('Artificial Intelligence for Business Executives — Apriori Management Training Ltd (Oct 2024)'),
       bullet('Fundamentals of Digital Marketing — Google (Jun 2024)'),
       bullet('Google My Business — Google (Jun 2024)'),
-      bullet('YouTube Music Assessment — Google (Jun 2024)'),
-      bullet('21st Advertising, Marketing, Media & Communication Conference — Certificate of Attendance (Jun 2024)'),
-      bullet('IGCSE English as a Second Language, Grade C — University of Cambridge'),
+      bullet('IGCSE English as a Second Language — University of Cambridge'),
 
       // Skills
       sectionTitle('Skills'),
       body([new TextRun({ text: 'Web Development: ', bold: true, size: 19, color: INK }), t('WordPress (Elementor Pro, WPBakery, Divi), MODX Revolution, WooCommerce, HTML/CSS, JavaScript, responsive / mobile-first, page-speed optimization, Git & GitHub, VS Code, AI-assisted coding, website maintenance, cPanel / DNS.')]),
-      body([new TextRun({ text: 'Marketing & SEO: ', bold: true, size: 19, color: INK }), t('Technical & on-page SEO, Google Ads, Meta & LinkedIn Ads, paid social, social media management & scheduling, email marketing (Mailchimp, Brevo), campaign management, Google Tag Manager & Analytics, Google Business / local SEO, YouTube, audience growth.')]),
+      body([new TextRun({ text: 'Marketing & SEO: ', bold: true, size: 19, color: INK }), t('Technical & on-page SEO, Google Ads, Meta & LinkedIn Ads, paid social, social media management & scheduling, email marketing (Mailchimp, Brevo), campaign management, Google Tag Manager, Google Analytics 4 (GA4), Google Business / local SEO, YouTube, audience growth.')]),
       body([new TextRun({ text: 'Design & Video: ', bold: true, size: 19, color: INK }), t('Photoshop, Illustrator, Premiere Pro, After Effects, DaVinci Resolve, Figma, Adobe XD, logo design, typography, video editing, product photography.')]),
       body([new TextRun({ text: 'AI & Tools: ', bold: true, size: 19, color: INK }), t('AI strategy & integration, data-driven decisions, business intelligence; ChatGPT, Google Gemini, Claude (Code, Cowork & design), Figma AI.')]),
 
@@ -146,7 +141,7 @@ const doc = new Document({
       sectionTitle('Volunteering, Languages & Interests'),
       body([new TextRun({ text: 'Volunteering: ', bold: true, size: 19, color: INK }), t('YoungShip Cyprus — active volunteer supporting networking & industry events for the local maritime community.')]),
       body([new TextRun({ text: 'Languages: ', bold: true, size: 19, color: INK }), t('Greek (native) · English — IGCSE, University of Cambridge.')]),
-      body([new TextRun({ text: 'Interests: ', bold: true, size: 19, color: INK }), t('Playing bouzouki · Photography · PC gaming.')]),
+      body([new TextRun({ text: 'Interests: ', bold: true, size: 19, color: INK }), t('Playing bouzouki · Photography.')]),
     ],
   }],
 })

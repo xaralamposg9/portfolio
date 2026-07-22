@@ -1,632 +1,1418 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#06080f" />
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Charalampos Photiou — Web Developer & Digital Marketing Executive</title>
+<meta name="description" content="Cinematic portfolio of Charalampos Photiou — web developer & digital marketing executive in Limassol, Cyprus. 50+ live sites, full-funnel campaigns." />
 
-    <!-- Primary meta -->
-    <title>Charalampos Photiou — Web Developer & Digital Marketing Executive</title>
-    <meta
-      name="description"
-      content="Charalampos Photiou — Web Developer & Digital Marketing Executive in Limassol, Cyprus. Building and managing 50+ live websites with full-funnel digital marketing, SEO, and AI-assisted development."
-    />
-    <meta name="author" content="Charalampos Photiou" />
-    <link rel="canonical" href="https://xaralamposg9.github.io/portfolio/" />
+<!-- social cards (og:url/og:image want absolute URLs — update on deploy) -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Charalampos Photiou — Web Developer & Digital Marketing Executive" />
+<meta property="og:description" content="50+ live sites managed. Full-funnel campaigns. Limassol, Cyprus." />
+<meta property="og:image" content="assets/headshot.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23060A09'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%232EE6A8'/%3E%3C/svg%3E" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Charalampos Photiou",
+  "jobTitle": "Web Developer & Digital Marketing Executive",
+  "email": "mailto:charfotiou@gmail.com",
+  "telephone": "+357 96425378",
+  "address": { "@type": "PostalAddress", "addressLocality": "Limassol", "addressCountry": "CY" },
+  "sameAs": ["https://www.linkedin.com/in/charalampos-fotiou-63120a286/"],
+  "worksFor": { "@type": "Organization", "name": "Fameline Holding Group" }
+}
+</script>
 
-    <!-- Open Graph (absolute URLs — social scrapers don't resolve relative paths) -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://xaralamposg9.github.io/portfolio/" />
-    <meta property="og:title" content="Charalampos Photiou — Web Developer & Digital Marketing Executive" />
-    <meta
-      property="og:description"
-      content="Web developer and digital marketer in Limassol, Cyprus. 50+ live websites, full-funnel marketing, SEO, and AI-assisted development."
-    />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:image" content="https://xaralamposg9.github.io/portfolio/og-image.svg" />
+<!-- Fonts: Syne (massive display) + Space Grotesk (body) + Space Mono (HUD labels) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Space+Grotesk:wght@400;500;600&family=Space+Mono&display=swap" rel="stylesheet" />
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Charalampos Photiou — Web Developer & Digital Marketing Executive" />
-    <meta
-      name="twitter:description"
-      content="Web developer and digital marketer in Limassol, Cyprus. 50+ live websites, full-funnel marketing, SEO."
-    />
-    <meta name="twitter:image" content="https://xaralamposg9.github.io/portfolio/og-image.svg" />
+<style>
+/* ============================================================
+   TOKENS — "black void film set with emerald rim light"
+   Derived from the three generated clips, not a stock palette.
+   ============================================================ */
+:root{
+  --void:    #060A09;                 /* stage-black base            */
+  --void-2:  #0B1210;                 /* elevated surface            */
+  --void-3:  #101A17;                 /* floating surface            */
+  --ink:     #EAF6F0;                 /* near-white text             */
+  --dim:     #7E948C;                 /* muted text                  */
+  --em:      #2EE6A8;                 /* emerald rim — the accent    */
+  --em-deep: #0E9F6E;
+  --hair:    rgba(46,230,168,.16);    /* emerald hairline            */
+  --hair-w:  rgba(234,246,240,.09);   /* white hairline              */
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  --f-disp: "Syne", sans-serif;
+  --f-body: "Space Grotesk", system-ui, sans-serif;
+  --f-mono: "Space Mono", ui-monospace, monospace;
 
-    <!-- Fonts: Bricolage Grotesque (display) · Inter (body) · JetBrains Mono (labels) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
+  --gutter: clamp(2rem, 5vw, 4.5rem);  /* 32px phones → 72px desktop */
+  --maxw: 1280px;
 
-    <!-- Structured data for SEO -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Charalampos Photiou",
-        "jobTitle": "Web Developer & Digital Marketing Executive",
-        "email": "mailto:charfotiou@gmail.com",
-        "telephone": "+357 96425378",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Limassol",
-          "addressCountry": "Cyprus"
-        },
-        "sameAs": ["https://www.linkedin.com/in/charalampos-fotiou-63120a286/"]
-      }
-    </script>
+  /* layered emerald-tinted shadow */
+  --shadow: 0 1px 0 rgba(46,230,168,.06),
+            0 12px 32px rgba(0,0,0,.5),
+            0 32px 80px rgba(14,159,110,.10);
+}
 
-    <script type="module" src="/src/main.js"></script>
-  </head>
+*,*::before,*::after{ box-sizing:border-box; margin:0; }
+html{ scroll-behavior:smooth; }
+body{
+  background:var(--void); color:var(--ink);
+  font-family:var(--f-body); line-height:1.7;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+}
+::selection{ background:var(--em); color:var(--void); }
 
-  <body>
-    <!-- Skip link for keyboard / screen-reader users -->
-    <a href="#main" class="skip-link">Skip to content</a>
+img,video,canvas{ max-width:100%; display:block; }
+a{ color:inherit; }
+button{ font:inherit; }
 
-    <!-- Custom cursor (hidden on touch / reduced-motion via CSS+JS) -->
-    <div class="cursor" aria-hidden="true">
-      <div class="cursor__dot"></div>
-      <div class="cursor__ring"></div>
-    </div>
+*:focus-visible{ outline:2px solid var(--em); outline-offset:3px; }
 
-    <!-- Grain + ambient gradient atmosphere -->
-    <div class="atmosphere" aria-hidden="true">
-      <div class="atmosphere__glow atmosphere__glow--a"></div>
-      <div class="atmosphere__glow atmosphere__glow--b"></div>
-      <div class="grain"></div>
-    </div>
+/* keyboard escape hatch past ~7 screens of pinned scenes */
+.skip{
+  position:fixed; top:-100px; left:50%; transform:translateX(-50%); z-index:300;
+  font-family:var(--f-mono); font-size:.74rem; letter-spacing:.1em; text-transform:uppercase;
+  background:var(--em); color:var(--void); padding:.7rem 1.2rem; text-decoration:none;
+  transition:top .2s ease;
+}
+.skip:focus-visible{ top:12px; }
 
-    <!-- ───────────────────────── NAV ───────────────────────── -->
-    <header class="nav" id="nav">
-      <div class="nav__inner">
-        <a href="#hero" class="nav__brand" data-cursor="link" aria-label="Charalampos Photiou — home">
-          <span class="nav__brand-mark">CP</span>
-          <span class="nav__brand-text">Charalampos&nbsp;Photiou</span>
-        </a>
+.wrap{ max-width:var(--maxw); margin:0 auto; padding-inline:var(--gutter); }
 
-        <nav class="nav__links" aria-label="Primary">
-          <a href="#about" data-cursor="link">About</a>
-          <a href="#skills" data-cursor="link">Skills</a>
-          <a href="#work" data-cursor="link">Work</a>
-          <a href="#campaigns" data-cursor="link">Campaigns</a>
-          <a href="#experience" data-cursor="link">Experience</a>
-          <a href="#contact" data-cursor="link">Contact</a>
-        </nav>
+/* mono HUD label — the recurring signature device */
+.hud{
+  font-family:var(--f-mono); font-size:.68rem; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--em);
+}
+.hud--dim{ color:var(--dim); }
+.avail{
+  display:inline-block; width:7px; height:7px; border-radius:50%;
+  background:var(--em); margin-right:.55rem;
+  box-shadow:0 0 10px rgba(46,230,168,.8); animation:pulse 2.2s ease infinite;
+}
+@keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:.35; } }
+@media (prefers-reduced-motion: reduce){ .avail{ animation:none; } }
 
-        <a href="#contact" class="btn btn--small nav__cta" data-cursor="link">Get in touch</a>
+h1, h2{
+  font-family:var(--f-disp); font-weight:800; text-transform:uppercase;
+  font-size:clamp(2.2rem,6vw,4.6rem); line-height:.95; letter-spacing:-.02em;
+}
 
-        <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false" data-cursor="link">
-          <span></span><span></span>
-        </button>
+/* film-grain overlay for depth */
+.grain{
+  /* animation shifts ≤3% — 40px bleed is plenty; -50% expanded the
+     mobile layout viewport (page rendered zoomed out) */
+  position:fixed; inset:-40px; z-index:90; pointer-events:none; opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 8s steps(10) infinite;
+}
+@keyframes grain{
+  0%,100%{ transform:translate(0,0); } 20%{ transform:translate(-3%,2%); }
+  40%{ transform:translate(2%,-3%); } 60%{ transform:translate(-2%,-2%); }
+  80%{ transform:translate(3%,3%); }
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav{
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1.1rem var(--gutter);
+  mix-blend-mode:normal;
+  transition:background .3s ease, border-color .3s ease;
+  border-bottom:1px solid transparent;
+}
+/* blur lives on a pseudo — backdrop-filter on .nav itself would make it a
+   containing block for the fixed mobile menu overlay (breaks it after scroll) */
+.nav::before{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:rgba(6,10,9,.78); backdrop-filter:blur(12px);
+  opacity:0; transition:opacity .3s ease;
+}
+.nav.scrolled{ border-bottom-color:var(--hair-w); }
+.nav.scrolled::before{ opacity:1; }
+.brand{ font-family:var(--f-mono); font-weight:400; font-size:.8rem; letter-spacing:.2em;
+  text-decoration:none; display:flex; align-items:center; gap:.6rem; }
+.brand i{ width:8px; height:8px; border-radius:50%; background:var(--em);
+  box-shadow:0 0 12px var(--em); }
+.nav-links{ display:flex; gap:2rem; align-items:center; }
+.nav-links a{ text-decoration:none; font-size:.85rem; color:var(--dim);
+  transition:color .2s ease; position:relative; }
+.nav-links a:hover, .nav-links a:focus-visible{ color:var(--ink); }
+.nav-cta{
+  font-family:var(--f-mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--em) !important; border:1px solid var(--hair); padding:.55rem 1rem;
+  transition:background .2s ease, color .2s ease, transform .2s ease;
+}
+.nav-cta:hover{ background:var(--em); color:var(--void) !important; transform:translateY(-1px); }
+.nav-toggle{ display:none; background:none; border:0; cursor:pointer; padding:.4rem; z-index:110; }
+.nav-toggle span{ display:block; width:24px; height:2px; background:var(--ink); margin:5px 0; transition:transform .3s, opacity .3s; }
+
+/* ============================================================
+   HERO BITS — reused inside the pillars opener
+   ============================================================ */
+.hero-coords{ margin-bottom:1.4rem; display:flex; gap:1.6rem; flex-wrap:wrap; }
+.hero-ctas{ display:flex; gap:.7rem; flex-wrap:wrap; }
+.pillars-head .hero-ctas{ margin-top:1.6rem; }
+.hbtn{
+  font-family:var(--f-mono); font-size:.74rem; letter-spacing:.1em; text-transform:uppercase;
+  text-decoration:none; padding:.7rem 1.15rem; border:1px solid var(--hair);
+  color:var(--em); transition:background .2s ease, color .2s ease, transform .2s ease;
+}
+.hbtn:hover{ background:var(--em); color:var(--void); transform:translateY(-2px); }
+.hbtn-solid{ background:var(--em); color:var(--void); }
+.hbtn-solid:hover{ box-shadow:0 8px 28px rgba(46,230,168,.35); }
+
+/* scroll cue bottom-left of the opener */
+.scroll-cue{
+  position:absolute; left:var(--gutter); bottom:4vh; z-index:6;
+  display:flex; align-items:center; gap:.7rem;
+  font-family:var(--f-mono); font-size:.66rem; letter-spacing:.22em; text-transform:uppercase; color:var(--dim);
+}
+.scroll-cue .dot{ width:6px; height:10px; border:1px solid var(--dim); border-radius:6px; position:relative; }
+.scroll-cue .dot::after{ content:""; position:absolute; left:50%; top:2px; width:2px; height:2px;
+  background:var(--em); border-radius:50%; transform:translateX(-50%); animation:cue 1.6s ease infinite; }
+@keyframes cue{ 0%{ top:2px; opacity:1; } 100%{ top:6px; opacity:0; } }
+
+/* ============================================================
+   STATS STRIP
+   ============================================================ */
+#stats{ border-block:1px solid var(--hair-w); background:var(--void-2); position:relative; z-index:5; }
+.stats-grid{ display:grid; grid-template-columns:repeat(4,1fr); }
+.stat{
+  padding:clamp(1.6rem,3.5vw,3rem) 1.5rem; text-align:center;
+  border-left:1px solid var(--hair-w);
+}
+.stat:first-child{ border-left:0; }
+.stat .n{
+  font-family:var(--f-disp); font-weight:800;
+  font-size:clamp(2.2rem,5vw,4rem); line-height:1; color:var(--ink);
+}
+.stat .n .u{ color:var(--em); }
+.stat .l{ font-family:var(--f-mono); font-size:.64rem; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--dim); margin-top:.8rem; display:block; }
+
+/* ============================================================
+   MARQUEE — outlined type strip, speeds up with scroll velocity
+   ============================================================ */
+.marquee{ overflow:hidden; border-bottom:1px solid var(--hair-w);
+  padding:1.1rem 0; background:var(--void); position:relative; z-index:1; }
+.marquee-track{ display:flex; white-space:nowrap; width:max-content; }
+.marquee-track span{
+  font-family:var(--f-disp); font-weight:800; text-transform:uppercase;
+  font-size:clamp(1.5rem,2.8vw,2.4rem); letter-spacing:-.01em; line-height:1;
+  color:transparent; -webkit-text-stroke:1px rgba(234,246,240,.22);
+}
+@media (prefers-reduced-motion: reduce){ .marquee{ display:none; } }
+
+/* ============================================================
+   PILLARS — over clip 2
+   ============================================================ */
+#pillars{ position:relative; overflow:hidden; }
+#pillars .bg{ position:absolute; inset:0; }
+#pillars .bg video{ width:100%; height:100%; object-fit:cover; }
+#pillars .bg::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(90deg, rgba(6,10,9,.94) 0%, rgba(6,10,9,.78) 45%, rgba(6,10,9,.45) 100%);
+}
+.pillars-inner{ position:relative; z-index:2; padding-block:clamp(5rem,10vw,9rem); }
+.pillars-head{ margin-bottom:clamp(3rem,6vw,5rem); max-width:56ch; }
+/* pinned scrub-scene mode: two beats share the viewport — the head
+   holds it alone first, then wipes out as the pillars take the stage.
+   Both are absolutely centered so neither can overflow 100vh. */
+#pillars.pinned .pillars-inner{
+  min-height:100vh; position:relative; padding-block:0;
+}
+#pillars.pinned .pillars-head,
+#pillars.pinned .pillars-list{
+  position:absolute; top:50%; left:var(--gutter); right:var(--gutter); margin:0;
+  /* vertical centering via GSAP yPercent:-50 — CSS translate would be
+     overwritten by the scrub tweens */
+}
+#pillars.pinned .pillar{ padding:1.15rem 0; }
+#pillars.pinned .pillar h3{ font-size:clamp(1.4rem,3vw,2.2rem); }
+#pillars.pinned .pillar p{ font-size:.92rem; margin:.5rem 0 .8rem; }
+.pillars-head p{ color:var(--dim); margin-top:1.2rem; font-size:1.05rem; }
+.pillar{
+  border-top:1px solid var(--hair-w); padding:clamp(1.8rem,3.5vw,2.8rem) 0;
+  display:grid; grid-template-columns:auto 1fr; gap:clamp(1.2rem,4vw,3.5rem); align-items:start;
+}
+.pillar:last-child{ border-bottom:1px solid var(--hair-w); }
+.pillar .num{
+  font-family:var(--f-mono); font-size:.72rem; letter-spacing:.2em; color:var(--em);
+  padding-top:.7rem; min-width:5.5rem;
+}
+.pillar h3{
+  font-family:var(--f-disp); font-weight:800; text-transform:uppercase;
+  font-size:clamp(1.7rem,4.2vw,3.2rem); line-height:1; letter-spacing:-.01em;
+}
+.pillar h3 span{ color:transparent; -webkit-text-stroke:1px var(--em); }
+.pillar p{ color:var(--dim); max-width:60ch; margin:.8rem 0 1.1rem; }
+.pillar .tags{ display:flex; flex-wrap:wrap; gap:.45rem; }
+.ptag{
+  font-family:var(--f-mono); font-size:.66rem; letter-spacing:.06em;
+  padding:.32rem .65rem; border:1px solid var(--hair-w); color:var(--dim);
+  transition:border-color .2s ease, color .2s ease;
+}
+.ptag:hover{ border-color:var(--em); color:var(--em); }
+
+/* ============================================================
+   FEATURED — the long wall. One horizontal gallery: huge panels
+   hung side by side, scroll slides the whole wall past you.
+   ============================================================ */
+#featured{ position:relative; background:var(--void); border-block:1px solid var(--hair-w); overflow:hidden; }
+#featured .hwrap{ position:relative; overflow:hidden; }
+#featured.pinned .hwrap{ height:100vh; display:flex; align-items:center; }
+.htrack{
+  display:flex; align-items:center; gap:5vw;
+  padding-inline:8vw 14vw; width:max-content; will-change:transform;
+}
+.htrack .feat-head{ flex:0 0 auto; width:min(36vw,540px); }
+.feat-head p{ color:var(--dim); margin-top:1.2rem; max-width:44ch; }
+/* one hung piece: huge frame, ghost number, caption underneath */
+.panel{
+  position:relative; flex:0 0 auto; width:min(68vw,1060px);
+  padding-top:3.4rem; display:block; text-decoration:none;
+}
+.panel figure{
+  margin:0; position:relative; aspect-ratio:16/10; padding:9px;
+  background:#0A100E; border:1px solid var(--hair-w); border-radius:6px;
+  box-shadow:0 0 0 1px rgba(0,0,0,.55), 0 28px 90px rgba(0,0,0,.55), 0 0 110px rgba(46,230,168,.07);
+  transition:border-color .25s ease;
+}
+.panel:hover figure, .panel:focus-visible figure{ border-color:var(--em); }
+.panel .frame{
+  display:block; width:100%; height:100%; overflow:hidden; border-radius:3px;
+}
+.panel img{
+  width:114%; max-width:none; height:100%; object-fit:cover; object-position:top;
+  will-change:transform;
+}
+/* giant outlined number hanging over the frame's top-left corner */
+.p-num{
+  position:absolute; top:-.06em; left:-.04em; z-index:2; pointer-events:none;
+  font-family:var(--f-disp); font-weight:800; line-height:1;
+  font-size:clamp(4.5rem,8.5vw,8rem); letter-spacing:-.02em;
+  color:transparent; -webkit-text-stroke:1px rgba(234,246,240,.22);
+  transition:-webkit-text-stroke-color .25s ease;
+}
+.panel:hover .p-num{ -webkit-text-stroke-color:rgba(46,230,168,.55); }
+.p-meta{ display:flex; align-items:baseline; gap:1.1rem; flex-wrap:wrap; margin-top:1.1rem; }
+.p-meta b{ font-family:var(--f-disp); font-weight:700; color:var(--ink);
+  font-size:clamp(1.15rem,1.9vw,1.6rem); }
+.p-meta span{ font-family:var(--f-mono); font-size:.64rem; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--dim); }
+.p-meta i{ margin-left:auto; font-style:normal; font-family:var(--f-mono);
+  font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--em);
+  transition:transform .25s ease; }
+.panel:hover .p-meta i{ transform:translate(4px,-4px); }
+/* wall progress, bottom-left, mirrors the campaigns bar */
+.gal-progress{
+  position:absolute; left:var(--gutter); bottom:5vh; z-index:5;
+  width:min(320px,40vw); height:2px; background:var(--hair-w); overflow:hidden;
+}
+.gal-progress i{ position:absolute; inset:0; background:var(--em);
+  transform:scaleX(0); transform-origin:left; }
+/* static fallback — mobile / reduced motion / no pin: stacked panels */
+#featured.static .gal-progress{ display:none; }
+#featured.static .htrack{
+  display:block; width:auto; max-width:940px; margin:0 auto;
+  padding:clamp(3rem,7vw,5rem) var(--gutter);
+}
+#featured.static .feat-head{ width:auto; margin-bottom:3rem; }
+#featured.static .panel{ width:100%; margin-bottom:3.5rem; }
+
+/* ============================================================
+   WORK
+   ============================================================ */
+#work{ padding:clamp(5rem,10vw,9rem) 0; }
+.work-head{ display:flex; justify-content:space-between; align-items:flex-end;
+  gap:2rem; flex-wrap:wrap; margin-bottom:2.6rem; }
+.work-head p{ color:var(--dim); margin-top:1.2rem; max-width:56ch; }
+.filters{ display:flex; gap:.5rem; flex-wrap:wrap; }
+.filter{
+  font-family:var(--f-mono); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase;
+  background:none; border:1px solid var(--hair-w); color:var(--dim);
+  padding:.55rem .95rem; cursor:pointer;
+  transition:border-color .2s ease, color .2s ease, background .2s ease, transform .15s ease;
+}
+.filter:hover{ border-color:var(--em); color:var(--em); transform:translateY(-1px); }
+.filter[aria-pressed="true"]{ background:var(--em); border-color:var(--em); color:var(--void); }
+/* compact index rows — 2 columns, hover paints a floating preview */
+.work-grid{
+  display:grid; grid-template-columns:1fr 1fr; column-gap:clamp(2rem,4vw,4rem);
+  margin-top:2.2rem; border-top:1px solid var(--hair-w);
+}
+.row{
+  display:flex; align-items:baseline; gap:.9rem; text-decoration:none;
+  padding:.72rem 0; border-bottom:1px solid var(--hair-w); min-width:0;
+}
+.row .idx{ font-family:var(--f-mono); font-size:.6rem; color:var(--dim); width:2.2ch; flex-shrink:0; }
+.row h3{
+  font-family:var(--f-disp); font-weight:700; font-size:1.02rem; letter-spacing:0;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis; flex:1; min-width:0;
+  transition:color .2s ease, transform .25s ease;
+}
+.row .cat{ font-size:.74rem; color:var(--dim); white-space:nowrap; }
+.row .plat{ font-family:var(--f-mono); font-size:.56rem; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--em-deep); flex-shrink:0; }
+.row .arrow{ font-family:var(--f-mono); font-size:.8rem; color:var(--dim);
+  transition:color .2s ease, transform .25s ease; flex-shrink:0; }
+.row:hover h3, .row:focus-visible h3{ color:var(--em); transform:translateX(6px); }
+.row:hover .arrow{ color:var(--em); transform:translate(2px,-2px); }
+.row.hide{ display:none; }
+
+/* viewfinder cursor */
+#cursor{
+  position:fixed; left:0; top:0; z-index:120; pointer-events:none;
+  width:10px; height:10px; margin:-5px 0 0 -5px; border-radius:50%;
+  background:var(--em); box-shadow:0 0 14px rgba(46,230,168,.6);
+  transition:width .2s ease, height .2s ease, margin .2s ease, background .2s ease, opacity .3s ease;
+}
+#cursor.big{
+  width:34px; height:34px; margin:-17px 0 0 -17px;
+  background:transparent; border:1px solid var(--em); box-shadow:none;
+}
+#cursor.label{
+  width:auto; height:auto; margin:14px 0 0 14px; border-radius:2px;
+  background:var(--em); box-shadow:0 4px 18px rgba(0,0,0,.4); padding:.35rem .6rem;
+}
+#cursor.label #cursorlabel{
+  font-family:var(--f-mono); font-size:.6rem; letter-spacing:.14em; color:var(--void);
+}
+#cursorlabel:empty{ display:none; }
+
+/* docked hover preview — fixed corner, never moves, image swaps per row */
+#preview{
+  position:fixed; right:24px; bottom:24px; z-index:80; pointer-events:none;
+  width:min(400px,30vw); aspect-ratio:16/10; overflow:hidden;
+  border:1px solid var(--hair); border-radius:4px; background:var(--void-3);
+  box-shadow:var(--shadow); opacity:0; transform:translateY(14px) scale(.96);
+}
+#preview img{ width:100%; height:100%; object-fit:cover; object-position:top; }
+#preview .tag{
+  position:absolute; left:.7rem; bottom:.6rem; font-family:var(--f-mono);
+  font-size:.6rem; letter-spacing:.14em; text-transform:uppercase; color:var(--em);
+  background:rgba(6,10,9,.85); padding:.25rem .55rem; border:1px solid var(--hair);
+}
+.work-count{ font-family:var(--f-mono); font-size:.68rem; letter-spacing:.14em;
+  color:var(--dim); margin-top:1.4rem; text-transform:uppercase; }
+/* factual highlight cards under the index */
+.highlights{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+  background:var(--hair-w); border:1px solid var(--hair-w); margin-top:2.6rem; }
+.highlight{ background:var(--void-2); padding:1.5rem 1.6rem; }
+.highlight h3{ font-family:var(--f-disp); font-weight:700; font-size:1.05rem; margin:.7rem 0 .4rem; }
+.highlight p{ color:var(--dim); font-size:.88rem; }
+/* thin mid-page contact prompt */
+.cta-strip{
+  display:flex; justify-content:center; align-items:baseline; gap:.8rem;
+  border-block:1px solid var(--hair-w); padding:1.3rem var(--gutter);
+  font-family:var(--f-mono); font-size:.74rem; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--dim); background:var(--void-2);
+  position:relative; z-index:1;
+}
+.cta-strip a{ color:var(--em); text-decoration:none; border-bottom:1px solid var(--hair); padding-bottom:.15rem; }
+.cta-strip a:hover{ border-bottom-color:var(--em); }
+
+/* ============================================================
+   CAMPAIGNS
+   ============================================================ */
+#campaigns{ padding:clamp(5rem,10vw,9rem) 0; background:var(--void-2);
+  border-block:1px solid var(--hair-w); }
+/* pinned card-stack scene: each card slides up over the previous */
+#campaigns.pinned{ overflow:hidden; padding:0; }
+#campaigns.pinned .wrap{
+  min-height:100vh; display:flex; flex-direction:column;
+  justify-content:center; padding-block:5.5rem 2rem;
+}
+#campaigns.pinned .camp-grid{
+  display:block; position:relative; margin-top:2rem;
+  width:min(880px,94vw); height:min(540px,62vh); margin-inline:auto;
+}
+#campaigns.pinned .events{ display:contents; }
+#campaigns.pinned .camp-lead,
+#campaigns.pinned .event{
+  position:absolute; inset:0; width:auto; box-shadow:var(--shadow);
+  will-change:transform;
+}
+#campaigns.pinned .event{ display:flex; flex-direction:column; padding:2.6rem 2.8rem; }
+/* deck-size typography — the small-card sizes drown in a 880px card */
+#campaigns.pinned .event .meta{ font-size:.74rem; margin-bottom:1.1rem; }
+#campaigns.pinned .event h3{ font-size:clamp(1.8rem,3.2vw,2.7rem); line-height:1.05;
+  text-transform:uppercase; letter-spacing:-.01em; max-width:16ch; margin-bottom:1rem; }
+#campaigns.pinned .event p{ font-size:1.05rem; max-width:52ch; }
+/* ghost sized from viewport HEIGHT (card is 62vh) so the longest word
+   ("REGATTA", 7 letters) never clips on short screens */
+#campaigns.pinned .event .ghost{ font-size:clamp(1.6rem,5.8vh,3.8rem); right:.9rem; top:1.2rem; }
+#campaigns.pinned .estat{ font-size:.74rem; padding:.45rem .85rem; }
+#campaigns.pinned .camp-lead h3{ font-size:clamp(1.6rem,2.8vw,2.3rem); }
+.camp-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:1.5rem; margin-top:3rem; }
+.camp-lead{ border:1px solid var(--hair-w); padding:clamp(1.6rem,3.5vw,2.6rem); background:var(--void); }
+.camp-lead h3{ font-family:var(--f-disp); font-weight:700; font-size:1.5rem; margin:.9rem 0 1rem; }
+.camp-lead p{ color:var(--dim); margin-bottom:1.5rem; }
+.camp-lead p b{ color:var(--em); font-weight:500; }
+.formats{ display:flex; flex-wrap:wrap; gap:.45rem; margin-bottom:2rem; }
+.fmt{ font-family:var(--f-mono); font-size:.66rem; letter-spacing:.08em; padding:.32rem .65rem;
+  border:1px solid var(--hair); color:var(--em); }
+.camp-nums{ display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--hair-w); }
+.camp-nums div{ padding:1.1rem; border-left:1px solid var(--hair-w); }
+.camp-nums div:first-child{ border-left:0; }
+.camp-nums .n{ font-family:var(--f-disp); font-weight:800; font-size:1.8rem; line-height:1; }
+.camp-nums .n .u{ color:var(--em); }
+.camp-nums .l{ font-family:var(--f-mono); font-size:.58rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--dim); margin-top:.5rem; display:block; }
+.events{ display:flex; flex-direction:column; gap:1.5rem; }
+.event{
+  border:1px solid var(--hair-w); background:var(--void); padding:1.4rem 1.6rem; flex:1;
+  position:relative; overflow:hidden;
+  transition:border-color .3s ease, box-shadow .3s ease;
+}
+/* transform transition only on hover-in — never fights GSAP's scrub writes */
+.event:hover{ transition:border-color .3s ease, box-shadow .3s ease, transform .3s ease; }
+/* emerald glow sweep + lift on hover */
+.event::before{
+  content:""; position:absolute; inset:0;
+  background:radial-gradient(420px 200px at 85% 110%, rgba(46,230,168,.16), transparent 70%);
+  opacity:0; transition:opacity .35s ease;
+}
+.event:hover{ border-color:var(--em); transform:translateY(-5px); box-shadow:var(--shadow); }
+.event:hover::before{ opacity:1; }
+/* ghost word — vertical along the card's right edge */
+.event .ghost{
+  position:absolute; right:.5rem; top:.9rem; pointer-events:none;
+  writing-mode:vertical-rl;
+  font-family:var(--f-disp); font-weight:800; text-transform:uppercase;
+  font-size:clamp(1.9rem,2.6vw,2.6rem); line-height:1; letter-spacing:.04em;
+  color:transparent; -webkit-text-stroke:1px rgba(234,246,240,.14);
+  transition:-webkit-text-stroke-color .3s ease;
+}
+.event:hover .ghost{ -webkit-text-stroke-color:rgba(46,230,168,.35); }
+.event{ display:flex; flex-direction:column; }
+.event .estats{ margin-top:auto; padding-top:1.3rem; display:flex; flex-wrap:wrap; gap:.4rem; position:relative; }
+.estat{
+  font-family:var(--f-mono); font-size:.62rem; letter-spacing:.08em;
+  padding:.28rem .6rem; border:1px solid var(--hair-w); color:var(--dim);
+}
+.event:hover .estat{ border-color:var(--hair); color:var(--em); transition:color .3s ease, border-color .3s ease; }
+.event .meta{ font-family:var(--f-mono); font-size:.62rem; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--em); margin-bottom:.6rem; }
+.event h3{ font-family:var(--f-disp); font-weight:700; font-size:1.12rem; margin-bottom:.5rem; }
+.event p{ color:var(--dim); font-size:.9rem; position:relative; }
+/* horizontal-scene progress bar */
+.camp-progress{
+  width:min(320px,40vw); height:2px; background:var(--hair-w); margin-top:1.4rem;
+  position:relative; overflow:hidden;
+}
+.camp-progress i{
+  position:absolute; inset:0; background:var(--em); transform:scaleX(0); transform-origin:left;
+}
+
+/* ============================================================
+   EXPERIENCE
+   ============================================================ */
+#experience{ padding:clamp(5rem,10vw,9rem) 0; }
+.xp{ margin-top:3rem; position:relative; padding-left:clamp(1.6rem,3vw,2.6rem); }
+/* drawing timeline spine */
+.xp .spine{ position:absolute; left:0; top:0; bottom:0; width:1px; background:var(--hair-w); }
+.xp .spine i{ display:block; width:100%; height:100%; background:var(--em);
+  transform:scaleY(0); transform-origin:top;
+  box-shadow:0 0 12px rgba(46,230,168,.5); }
+.leg{
+  display:grid; grid-template-columns:200px 1fr; gap:clamp(1.5rem,4vw,4rem);
+  border-top:1px solid var(--hair-w); padding:clamp(1.8rem,3.5vw,2.6rem) 0;
+  position:relative;
+}
+.leg:hover{ transform:translateX(8px); transition:transform .3s ease; }
+/* glowing node on the spine */
+.leg::before{
+  content:""; position:absolute; top:calc(clamp(1.8rem,3.5vw,2.6rem) + .55rem);
+  left:calc(-1 * clamp(1.6rem,3vw,2.6rem) - 4.5px);
+  width:10px; height:10px; border-radius:50%;
+  background:var(--void); border:1px solid var(--em);
+  box-shadow:0 0 10px rgba(46,230,168,.55);
+}
+/* giant year watermark */
+.leg::after{
+  content:attr(data-year); position:absolute; right:0; top:.4rem; pointer-events:none;
+  font-family:var(--f-disp); font-weight:800; line-height:1;
+  font-size:clamp(3.4rem,7vw,6.4rem); letter-spacing:-.03em;
+  color:transparent; -webkit-text-stroke:1px rgba(234,246,240,.1);
+}
+.leg:last-child{ border-bottom:1px solid var(--hair-w); }
+.leg .when{ font-family:var(--f-mono); font-size:.7rem; letter-spacing:.14em; color:var(--em);
+  padding-top:.5rem; }
+.leg h3{ font-family:var(--f-disp); font-weight:700; font-size:clamp(1.4rem,2.4vw,1.9rem);
+  text-transform:uppercase; letter-spacing:-.01em; }
+.leg .org{ color:var(--dim); font-size:.9rem; margin:.2rem 0 1rem; }
+.leg ul{ padding-left:1.1rem; }
+.leg li{ margin:.4rem 0; color:#B9CCC4; font-size:.95rem; }
+.leg li::marker{ color:var(--em); }
+.creds{ margin-top:4rem; display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,5vw,4rem); }
+.creds h3{ font-family:var(--f-disp); font-weight:700; font-size:1.2rem; text-transform:uppercase;
+  margin-bottom:1.2rem; }
+.creds li{ list-style:none; padding:.75rem 0; border-bottom:1px solid var(--hair-w); }
+.creds ul{ padding:0; }
+.creds .t{ font-size:.95rem; }
+.creds .s{ font-family:var(--f-mono); font-size:.64rem; letter-spacing:.08em; color:var(--dim); margin-top:.15rem; }
+
+/* ============================================================
+   CLOSER — clip 3
+   ============================================================ */
+#closer{ position:relative; min-height:100vh; display:flex; align-items:flex-end; overflow:hidden; }
+#closer video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+#closer .veil{ position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(6,10,9,.85) 0%, rgba(6,10,9,.25) 45%, rgba(6,10,9,.94) 100%); }
+.closer-content{ position:relative; z-index:2; width:100%; padding:0 var(--gutter) 8vh; }
+.closer-content h2{
+  font-size:clamp(2.6rem,8vw,7rem); max-width:14ch; line-height:.94; margin:1.4rem 0 2.2rem;
+}
+.closer-content h2 em{ font-style:normal; color:transparent; -webkit-text-stroke:1.5px var(--em); }
+.mail{
+  display:inline-block; font-family:var(--f-mono); font-size:clamp(1rem,2.6vw,1.6rem);
+  color:var(--em); text-decoration:none; border-bottom:1px solid var(--hair);
+  padding-bottom:.3rem; transition:border-color .2s ease, transform .2s ease;
+}
+.mail:hover{ border-bottom-color:var(--em); transform:translateY(-2px); }
+.closer-meta{ display:flex; gap:2.5rem; flex-wrap:wrap; margin-top:3rem; }
+.closer-meta .k{ font-family:var(--f-mono); font-size:.6rem; letter-spacing:.18em;
+  text-transform:uppercase; color:var(--dim); display:block; margin-bottom:.3rem; }
+.closer-meta a, .closer-meta span{ text-decoration:none; font-size:.95rem; }
+.closer-meta a:hover{ color:var(--em); }
+
+footer{
+  border-top:1px solid var(--hair-w); padding:1.6rem var(--gutter);
+  display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap;
+  font-family:var(--f-mono); font-size:.64rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--dim); background:var(--void);
+  position:relative; z-index:2;
+}
+
+/* ============================================================
+   REVEAL DEFAULTS (GSAP sets final states; this is no-JS fallback)
+   ============================================================ */
+.gs-reveal{ opacity:1; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1020px){
+  .work-grid{ grid-template-columns:1fr; }
+  .row .cat{ display:none; }
+  .camp-grid{ grid-template-columns:1fr; }
+}
+@media (max-width:760px){
+  /* kill intrinsic min-width blowouts — these expand the whole mobile
+     layout viewport (page renders zoomed out, right edge cut) */
+  .stats-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .stat{ padding:1.4rem .8rem; }
+  .stat .n{ font-size:clamp(1.6rem,8vw,2.2rem); }
+  .camp-nums{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .camp-nums .n{ font-size:1.25rem; }
+  .highlights{ grid-template-columns:1fr; }
+
+  /* readable micro-labels (desktop sizes fall under 12px on phones) */
+  .hud, .eyebrow{ font-size:.76rem; }
+  .row .idx{ font-size:.72rem; } .row .plat{ font-size:.68rem; }
+  .stat .l, .camp-nums .l{ font-size:.72rem; }
+  .event .meta, .estat, .fmt, .ptag{ font-size:.74rem; }
+  .leg .when, .creds .s, .closer-meta .k{ font-size:.76rem; }
+  .filter{ font-size:.78rem; padding:.7rem 1rem; }
+  footer{ font-size:.72rem; }
+
+  /* touch targets ≥44px */
+  .nav-toggle{ padding:.8rem; }
+  .cta-strip a, .closer-meta a, .mail{ display:inline-flex; align-items:center; min-height:44px; }
+
+  .nav-links{
+    position:fixed; inset:0; background:rgba(6,10,9,.97); backdrop-filter:blur(8px);
+    flex-direction:column; justify-content:center; gap:1.6rem;
+    transform:translateY(-100%); transition:transform .35s ease; z-index:105;
+  }
+  .nav-links.open{ transform:none; }
+  .nav-links a{ font-size:1.3rem; font-family:var(--f-disp); font-weight:700; }
+  .nav-toggle{ display:block; }
+  .nav-toggle.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2){ opacity:0; }
+  .nav-toggle.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+  .stats-grid{ grid-template-columns:1fr 1fr; }
+  .stat{ border-top:1px solid var(--hair-w); }
+  .stat:nth-child(-n+2){ border-top:0; }
+  .stat:nth-child(odd){ border-left:0; }
+  .work-grid{ grid-template-columns:1fr; }
+  .leg{ grid-template-columns:1fr; gap:.6rem; }
+  .creds{ grid-template-columns:1fr; }
+  .pillar{ grid-template-columns:1fr; gap:.4rem; }
+}
+
+/* reduced motion: no scrub, no grain, static states */
+@media (prefers-reduced-motion: reduce){
+  .grain{ display:none; }
+  .scroll-cue .dot::after{ animation:none; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#work">Skip to work</a>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav" aria-label="Main">
+  <a class="brand" href="#top"><i></i>C.PHOTIOU</a>
+  <div class="nav-links" id="navlinks">
+    <a href="#featured">Work</a>
+    <a href="#work">All sites</a>
+    <a href="#campaigns">Campaigns</a>
+    <a href="#experience">Experience</a>
+    <a class="nav-cta" href="assets/Charalampos-Photiou-CV.pdf" target="_blank" rel="noopener">CV ↗</a>
+    <a class="nav-cta" href="#closer">Get in touch</a>
+  </div>
+  <button class="nav-toggle" id="navtoggle" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ============ OPENER — pillars over scrubbed Builder clip ============ -->
+<section id="pillars" aria-label="Intro — what I do">
+  <div class="bg" aria-hidden="true">
+    <video data-src="assets/video/builder.mp4" poster="assets/posters/builder.jpg" muted playsinline preload="none" loop></video>
+  </div>
+  <div class="wrap pillars-inner">
+    <div class="pillars-head">
+      <div class="hero-coords">
+        <span class="hud"><i class="avail" aria-hidden="true"></i>Available for projects</span>
+        <span class="hud hud--dim">Charalampos Photiou — Limassol, CY</span>
       </div>
-      <!-- Scroll progress indicator -->
-      <div class="nav__progress" aria-hidden="true"></div>
-    </header>
+      <h1>Build. Rank.<br/>Grow.</h1>
+      <p>I'm Charalampos Photiou, web developer &amp; digital marketing executive — three-plus years at Fameline Holding Group running the full stack of digital, from the first line of markup to the campaign that drives traffic to it.</p>
+      <div class="hero-ctas">
+        <a class="hbtn hbtn-solid" href="#closer">Get in touch</a>
+        <a class="hbtn" href="assets/Charalampos-Photiou-CV.pdf" target="_blank" rel="noopener">View CV ↗</a>
+      </div>
+    </div>
 
-    <main id="main">
-      <!-- ───────────────────────── HERO ───────────────────────── -->
-      <section class="hero" id="hero">
-        <canvas class="hero__canvas" aria-hidden="true"></canvas>
-
-        <div class="container hero__inner">
-          <p class="hero__kicker reveal" data-reveal>
-            <span class="hero__status"></span> Available for web &amp; marketing work
-          </p>
-
-          <h1 class="hero__title">
-            <span class="line"><span class="line__inner">Charalampos</span></span>
-            <span class="line"><span class="line__inner">Photiou</span></span>
-          </h1>
-
-          <p class="hero__lede reveal" data-reveal>
-            <strong>Web Developer</strong> &amp; <strong>Digital Marketing Executive</strong>
-            based in Limassol, Cyprus — turning brands into fast, well-ranked websites
-            and full-funnel campaigns.
-          </p>
-
-          <div class="hero__actions reveal" data-reveal>
-            <a href="#work" class="btn btn--primary" data-cursor="link">View selected work</a>
-            <a href="#contact" class="btn btn--ghost" data-cursor="link">Get in touch</a>
-            <a href="./Charalampos-Photiou-CV.pdf" class="btn btn--ghost" data-cursor="link"
-               target="_blank" rel="noopener">View CV</a>
-          </div>
-
-          <!-- Animated counters -->
-          <dl class="hero__stats reveal" data-reveal>
-            <div class="stat">
-              <dt class="stat__num"><span data-count="50" data-suffix="+">0</span></dt>
-              <dd class="stat__label">Live websites managed</dd>
-            </div>
-            <div class="stat">
-              <dt class="stat__num"><span data-count="7500" data-suffix="+">0</span></dt>
-              <dd class="stat__label">LinkedIn followers grown</dd>
-            </div>
-            <div class="stat">
-              <dt class="stat__num"><span data-count="3" data-suffix="+">0</span></dt>
-              <dd class="stat__label">Years at Fameline Group</dd>
-            </div>
-            <div class="stat">
-              <dt class="stat__num"><span data-count="18">0</span></dt>
-              <dd class="stat__label">Websites designed &amp; built</dd>
-            </div>
-          </dl>
+    <div class="pillars-list">
+    <div class="pillar">
+      <span class="num">PILLAR—01</span>
+      <div>
+        <h3>Build <span>websites</span></h3>
+        <p>50+ live sites under management. WordPress (Elementor Pro, WPBakery, Divi), MODX Revolution maintenance &amp; development, and fully hand-coded sites in VS Code with Git/GitHub and AI-assisted workflows.</p>
+        <div class="tags">
+          <span class="ptag">WordPress</span><span class="ptag">MODX</span><span class="ptag">HTML/CSS/JS</span>
+          <span class="ptag">Git &amp; GitHub</span><span class="ptag">AI-assisted coding</span><span class="ptag">cPanel/DNS</span>
         </div>
+      </div>
+    </div>
 
-        <a href="#about" class="hero__scroll" aria-label="Scroll to about" data-cursor="link">
-          <span>Scroll</span>
-          <span class="hero__scroll-line"></span>
-        </a>
-      </section>
-
-      <!-- ───────────────────────── ABOUT ───────────────────────── -->
-      <section class="section about" id="about" data-nav="about">
-        <div class="container about__grid">
-          <div class="about__col-label">
-            <span class="section__index">01</span>
-            <h2 class="section__title">About</h2>
-          </div>
-
-          <div class="about__body">
-            <p class="about__lead reveal" data-reveal>
-              Digital marketing and web professional with <strong>3+ years</strong> at
-              Fameline Holding Group, combining hands-on web development with
-              full-funnel digital marketing.
-            </p>
-            <p class="reveal" data-reveal>
-              I manage a portfolio of <strong>50+ live websites</strong>. I build sites on
-              WordPress (Elementor Pro, WPBakery, Divi) and hand-code custom sites in VS Code
-              with Git/GitHub and AI-assisted coding, and I maintain and develop
-              <strong>MODX Revolution</strong> sites — all with a focus on responsive design,
-              page speed, and technical SEO.
-            </p>
-            <p class="reveal" data-reveal>
-              I complement this with Google Ads, email marketing (Mailchimp &amp; Brevo), paid
-              social, content, and design — backed by Google and AI certifications.
-            </p>
-
-            <ul class="about__meta reveal" data-reveal>
-              <li><span>Based in</span> Limassol, Cyprus</li>
-              <li><span>Languages</span> Greek (native) · English (Cambridge IGCSE)</li>
-              <li><span>Focus</span> Web · SEO · Paid Media · Email · AI</li>
-            </ul>
-          </div>
-
-          <!-- Portrait: shows headshot.jpg if present, else a designed monogram -->
-          <figure class="about__portrait reveal" data-reveal>
-            <div class="portrait">
-              <img
-                src="./headshot.jpg"
-                alt="Portrait of Charalampos Photiou"
-                width="480"
-                height="600"
-                loading="lazy"
-                onerror="this.closest('.portrait').classList.add('portrait--fallback'); this.remove();"
-              />
-              <div class="portrait__fallback" aria-hidden="true">
-                <span class="portrait__monogram">CP</span>
-                <span class="portrait__caption">Charalampos Photiou</span>
-              </div>
-            </div>
-          </figure>
+    <div class="pillar">
+      <span class="num">PILLAR—02</span>
+      <div>
+        <h3>Rank <span>&amp; measure</span></h3>
+        <p>Technical &amp; on-page SEO, page-speed optimization, and tracking with Google Tag Manager and Analytics — sites that load fast and get found.</p>
+        <div class="tags">
+          <span class="ptag">Technical SEO</span><span class="ptag">Page speed</span><span class="ptag">GTM</span>
+          <span class="ptag">GA4</span><span class="ptag">Local SEO</span>
         </div>
-      </section>
+      </div>
+    </div>
 
-      <!-- ───────────────────────── SKILLS ───────────────────────── -->
-      <section class="section skills" id="skills" data-nav="skills">
-        <div class="container">
-          <div class="section__head">
-            <span class="section__index">02</span>
-            <h2 class="section__title">Skills</h2>
-            <p class="section__sub reveal" data-reveal>
-              A full-stack of building, ranking, and growing — from the first line of
-              markup to the campaign that drives traffic to it.
-            </p>
-          </div>
-
-          <div class="skills__grid">
-            <article class="skill-card reveal" data-reveal>
-              <h3 class="skill-card__title"><span class="skill-card__no">A</span> Web Development</h3>
-              <ul class="tags">
-                <li>WordPress</li><li>Elementor Pro</li><li>WPBakery</li><li>Divi</li>
-                <li>MODX Revolution</li><li>WooCommerce</li><li>HTML / CSS</li>
-                <li>JavaScript</li><li>Responsive / Mobile-first</li>
-                <li>Page-speed Optimization</li><li>Git &amp; GitHub</li>
-                <li>VS Code</li><li>AI-assisted coding</li><li>cPanel / DNS</li>
-                <li>Website Maintenance</li>
-              </ul>
-            </article>
-
-            <article class="skill-card reveal" data-reveal>
-              <h3 class="skill-card__title"><span class="skill-card__no">B</span> Design &amp; Video</h3>
-              <ul class="tags">
-                <li>Photoshop</li><li>Illustrator</li><li>Premiere Pro</li>
-                <li>After Effects</li><li>DaVinci Resolve</li><li>Figma</li>
-                <li>Adobe XD</li><li>Logo Design</li><li>Typography</li>
-                <li>Graphic Design</li><li>Video Editing</li><li>Product Photography</li>
-              </ul>
-            </article>
-
-            <article class="skill-card reveal" data-reveal>
-              <h3 class="skill-card__title"><span class="skill-card__no">C</span> Marketing &amp; SEO</h3>
-              <ul class="tags">
-                <li>Technical &amp; On-page SEO</li><li>Google Tag Manager</li>
-                <li>Google Analytics</li><li>Google Ads</li><li>Meta Ads</li>
-                <li>LinkedIn Ads</li><li>Paid Social</li><li>Social Media Management</li>
-                <li>Social Scheduling</li><li>Email Marketing</li><li>Mailchimp</li>
-                <li>Brevo</li><li>Campaign Management</li>
-                <li>Google Business / Local SEO</li><li>YouTube Management</li>
-                <li>Audience Growth</li>
-              </ul>
-            </article>
-
-            <article class="skill-card reveal" data-reveal>
-              <h3 class="skill-card__title"><span class="skill-card__no">D</span> AI &amp; Tools</h3>
-              <ul class="tags">
-                <li>AI Strategy</li><li>Digital Transformation</li>
-                <li>AI Integration</li><li>Machine Learning Applications</li>
-                <li>Data-driven Decisions</li><li>Business Intelligence</li>
-                <li>ChatGPT</li><li>Google Gemini</li>
-                <li>Claude (Code, Cowork &amp; Design)</li><li>Figma AI</li>
-              </ul>
-            </article>
-          </div>
+    <div class="pillar">
+      <span class="num">PILLAR—03</span>
+      <div>
+        <h3>Grow <span>audiences</span></h3>
+        <p>Google Ads across every major format, paid social on Meta &amp; LinkedIn, and email in Mailchimp &amp; Brevo. Grew a company LinkedIn from ~1,000 to 7,500+ targeted maritime followers.</p>
+        <div class="tags">
+          <span class="ptag">Google Ads</span><span class="ptag">Meta &amp; LinkedIn Ads</span><span class="ptag">Email</span>
+          <span class="ptag">Content</span><span class="ptag">Design &amp; Video</span>
         </div>
-      </section>
+      </div>
+    </div>
+    </div><!-- /.pillars-list -->
+  </div>
+  <div class="scroll-cue"><span class="dot"></span>Scroll</div>
+</section>
 
-      <!-- ───────────────────────── SELECTED WORK ───────────────────────── -->
-      <section class="section work" id="work" data-nav="work">
-        <div class="container">
-          <div class="section__head">
-            <span class="section__index">03</span>
-            <h2 class="section__title">Selected Work</h2>
-            <p class="section__sub reveal" data-reveal>
-              31 live websites I work on across three platforms: built on WordPress +
-              Elementor (12) and hand-coded in VS Code (6), plus MODX sites I maintain
-              and develop (13). Filter by platform; each card links to the live site.
-            </p>
-          </div>
+<!-- ============ STATS ============ -->
+<section id="stats" aria-label="Key numbers">
+  <div class="stats-grid">
+    <div class="stat"><div class="n"><span data-count="50">0</span><span class="u">+</span></div><span class="l">Live sites managed</span></div>
+    <div class="stat"><div class="n"><span data-count="7500">0</span><span class="u">+</span></div><span class="l">LinkedIn followers grown</span></div>
+    <div class="stat"><div class="n"><span data-count="440">0</span><span class="u">K+</span></div><span class="l">Ad impressions</span></div>
+    <div class="stat"><div class="n">€0.05<span class="u"></span></div><span class="l">Avg. cost per ad interaction</span></div>
+  </div>
+</section>
 
-          <!-- Platform filter chips (injected from src/modules/work.js) -->
-          <div class="work__filters" id="work-filters" role="group"
-               aria-label="Filter projects by platform"></div>
+<!-- velocity-reactive type strip -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="mtrack">
+    <span>Build — Rank — Grow — 50+ live sites — Limassol 34°41′N — Web · SEO · Ads · Email —&nbsp;</span><span>Build — Rank — Grow — 50+ live sites — Limassol 34°41′N — Web · SEO · Ads · Email —&nbsp;</span>
+  </div>
+</div>
 
-          <div class="work__grid" id="work-grid">
-            <!-- Project cards are injected here from src/data.js for a single source of truth -->
-          </div>
+<!-- ============ FEATURED — the long wall ============ -->
+<section id="featured" aria-label="Selected work">
+  <div class="hwrap">
+    <div class="htrack" id="htrack">
+      <div class="feat-head">
+        <h2>Selected<br/>Work</h2>
+        <p>Five favourites hung on one long wall — every one built by me, end to end. Scroll to move along it; click any piece to visit the live site.</p>
+      </div>
+      <!-- panels injected from PROJECTS -->
+    </div>
+    <div class="gal-progress" aria-hidden="true"><i id="galfill"></i></div>
+  </div>
+</section>
+
+<!-- ============ WORK ============ -->
+<section id="work" aria-label="All live sites">
+  <div class="wrap">
+    <div class="work-head">
+      <div>
+        <h2>The Full<br/>Index</h2>
+        <p>31 live sites across three platforms — WordPress + Elementor (12), MODX I maintain &amp; develop (13), hand-coded in VS Code (6). Every card links to the live site.</p>
+      </div>
+      <div class="filters" id="filters" role="group" aria-label="Filter by platform">
+        <button class="filter" data-filter="all" aria-pressed="true">All 31</button>
+        <button class="filter" data-filter="wordpress" aria-pressed="false">WordPress 12</button>
+        <button class="filter" data-filter="modx" aria-pressed="false">MODX 13</button>
+        <button class="filter" data-filter="custom" aria-pressed="false">Custom 6</button>
+      </div>
+    </div>
+    <div class="work-grid" id="workgrid"></div>
+    <p class="work-count" id="workcount"></p>
+    <div class="highlights">
+      <div class="highlight">
+        <span class="hud hud--dim">Build &amp; manage</span>
+        <h3>The Fameline family</h3>
+        <p>Flagship group site plus a 12-site WordPress · Elementor portfolio — built, maintained, and kept fast end to end.</p>
+      </div>
+      <div class="highlight">
+        <span class="hud hud--dim">Maintain &amp; develop</span>
+        <h3>13-site MODX estate</h3>
+        <p>Content, new features, and upkeep across a MODX Revolution estate spanning marine services, safety, and trading brands.</p>
+      </div>
+      <div class="highlight">
+        <span class="hud hud--dim">Hand-coded</span>
+        <h3>6 custom logistics sites</h3>
+        <p>Hand-coded in VS Code with Git/GitHub and AI-assisted workflows, deployed to production — no CMS.</p>
+      </div>
+    </div>
+  </div>
+  <div id="preview" aria-hidden="true"><img alt="" /><span class="tag"></span></div>
+  <div class="wrap" hidden>
+  </div>
+</section>
+
+<div class="cta-strip">Like what you see? <a href="#closer">Get in touch →</a></div>
+
+<!-- ============ CAMPAIGNS ============ -->
+<section id="campaigns" aria-label="Campaigns and events">
+  <div class="wrap">
+    <h2>Campaigns<br/>&amp; Events</h2>
+    <div class="camp-progress" aria-hidden="true"><i id="campfill"></i></div>
+    <div class="camp-grid">
+      <div class="camp-lead">
+        <span class="hud hud--dim">Paid media · Google Ads</span>
+        <h3>Full-funnel campaigns across the group's brands</h3>
+        <p>I build, optimise, and report on Google Ads for FHG, OneNet, Starlink connectivity, MFT and more — every major format from keyword Search to Performance Max. Recent campaigns hit a <b>3.6% average interaction rate</b> at roughly €0.05 per interaction.</p>
+        <div class="formats">
+          <span class="fmt">Search</span><span class="fmt">Display</span><span class="fmt">Video</span>
+          <span class="fmt">Demand-Gen</span><span class="fmt">Performance-Max</span>
         </div>
-      </section>
-
-      <!-- ──────────────────── CAMPAIGNS & EVENTS ──────────────────── -->
-      <section class="section campaigns" id="campaigns" data-nav="campaigns">
-        <div class="container">
-          <div class="section__head">
-            <span class="section__index">04</span>
-            <h2 class="section__title">Campaigns &amp; Events</h2>
-            <p class="section__sub reveal" data-reveal>
-              Beyond websites, I plan and run the group's paid campaigns and produce the
-              marketing for its flagship maritime events and CSR initiatives.
-            </p>
-          </div>
-
-          <!-- ── Paid media: Google Ads ── -->
-          <div class="ads-panel reveal" data-reveal>
-            <div class="ads-panel__intro">
-              <p class="ads-panel__eyebrow">Paid media · Google Ads</p>
-              <h3 class="ads-panel__title">
-                Full-funnel campaigns across the group's brands
-              </h3>
-              <p class="ads-panel__copy">
-                I build, optimise, and report on Google Ads campaigns for FHG, OneNet,
-                Starlink connectivity, MFT and more — running every major format from
-                keyword Search to Performance&nbsp;Max. Recent campaigns delivered a
-                <strong>3.6% average interaction rate</strong> at roughly
-                <strong>€0.05 per interaction</strong> — efficient results for a lean budget.
-              </p>
-              <!-- Campaign formats I run (real types from the ad account) -->
-              <ul class="tags ads-panel__types" aria-label="Campaign types">
-                <li>Search</li>
-                <li>Display</li>
-                <li>Video</li>
-                <li>Demand&nbsp;Gen</li>
-                <li>Performance&nbsp;Max</li>
-              </ul>
-            </div>
-
-            <!-- Animated stats (rounded from the Google Ads account totals) -->
-            <dl class="ads-stats">
-              <div class="stat">
-                <dt class="stat__num"><span data-count="440" data-suffix="K+">0</span></dt>
-                <dd class="stat__label">Ad impressions delivered</dd>
-              </div>
-              <div class="stat">
-                <dt class="stat__num"><span data-count="16" data-suffix="K+">0</span></dt>
-                <dd class="stat__label">Clicks &amp; engagements</dd>
-              </div>
-              <div class="stat">
-                <dt class="stat__num"><span data-count="5">0</span></dt>
-                <dd class="stat__label">Campaign formats run</dd>
-              </div>
-            </dl>
-          </div>
-
-          <!-- ── Events I help run ── -->
-          <h3 class="campaigns__sub reveal" data-reveal>Events &amp; community</h3>
-          <div class="events__grid">
-            <!-- East Med Exhibition (has a public site → links out) -->
-            <a
-              class="event-card reveal"
-              data-reveal
-              href="https://eastmedexpo.com/"
-              target="_blank"
-              rel="noopener"
-              data-cursor="link"
-            >
-              <p class="event-card__meta">Exhibition · Apr 2025 · Limassol</p>
-              <h4 class="event-card__name">East Med Marine &amp; Offshore Exhibition</h4>
-              <p class="event-card__desc">
-                The group's flagship maritime expo (11th edition, 80+ exhibitors). I help with
-                the event, schedule its social posts, send the email campaigns, and run its paid ads.
-              </p>
-              <ul class="event-card__roles">
-                <li>Social</li><li>Email</li><li>Paid ads</li>
-              </ul>
-            </a>
-
-            <!-- Sailing Regatta (no public site) -->
-            <article class="event-card reveal" data-reveal>
-              <p class="event-card__meta">Sailing · Sep 2024 · Limassol Marina</p>
-              <h4 class="event-card__name">Fameline Offshore Sailing Regatta</h4>
-              <p class="event-card__desc">
-                Biennial charity regatta (7th edition) — 35+ yachts and 250+ guests. I help with
-                the event and schedule its social posts and email campaigns.
-              </p>
-              <ul class="event-card__roles">
-                <li>Social</li><li>Email</li>
-              </ul>
-            </article>
-
-            <!-- ITF tennis tournament hosted by the group -->
-            <article class="event-card reveal" data-reveal>
-              <p class="event-card__meta">Tennis · Mar 2024 · Limassol</p>
-              <h4 class="event-card__name">ITF World Tennis Tour Tournament</h4>
-              <p class="event-card__desc">
-                An ITF-sanctioned tennis tournament for men and women, hosted by the group.
-                I help with it and schedule its social posts.
-              </p>
-              <ul class="event-card__roles">
-                <li>Social</li>
-              </ul>
-            </article>
-
-            <!-- Table-football tournament — held in support of Movember -->
-            <article class="event-card reveal" data-reveal>
-              <p class="event-card__meta">Charity tournament · Movember</p>
-              <h4 class="event-card__name">Table-Football Tournament for Movember</h4>
-              <p class="event-card__desc">
-                A company-wide table-football tournament in support of Movember and
-                men's-health awareness. I organise it, and schedule the social posts and email.
-              </p>
-              <ul class="event-card__roles">
-                <li>Organising</li><li>Social</li><li>Email</li>
-              </ul>
-            </article>
-
-            <!-- Movember (CSR) -->
-            <article class="event-card reveal" data-reveal>
-              <p class="event-card__meta">CSR · Annual (November)</p>
-              <h4 class="event-card__name">Movember</h4>
-              <p class="event-card__desc">
-                Men's-health awareness campaign. I help by scheduling the social posts that
-                rally the group's teams behind the cause.
-              </p>
-              <ul class="event-card__roles">
-                <li>Social</li>
-              </ul>
-            </article>
-
-            <!-- World Cancer Day (CSR) -->
-            <article class="event-card reveal" data-reveal>
-              <p class="event-card__meta">CSR · 4 February</p>
-              <h4 class="event-card__name">World Cancer Day</h4>
-              <p class="event-card__desc">
-                Awareness-day campaign. I help by scheduling the social posts promoting
-                prevention and solidarity.
-              </p>
-              <ul class="event-card__roles">
-                <li>Social</li>
-              </ul>
-            </article>
-          </div>
+        <div class="camp-nums">
+          <div><div class="n"><span data-count="440">0</span><span class="u">K+</span></div><span class="l">Impressions</span></div>
+          <div><div class="n"><span data-count="16">0</span><span class="u">K+</span></div><span class="l">Clicks &amp; engagements</span></div>
+          <div><div class="n"><span data-count="5">0</span><span class="u"></span></div><span class="l">Formats run</span></div>
         </div>
-      </section>
-
-      <!-- ───────────────────────── EXPERIENCE ───────────────────────── -->
-      <section class="section experience" id="experience" data-nav="experience">
-        <div class="container">
-          <div class="section__head">
-            <span class="section__index">05</span>
-            <h2 class="section__title">Experience</h2>
-          </div>
-
-          <ol class="timeline">
-            <li class="timeline__item reveal" data-reveal>
-              <div class="timeline__dot"></div>
-              <p class="timeline__period">Jan 2025 – Present</p>
-              <h3 class="timeline__role">Digital Marketing Executive</h3>
-              <p class="timeline__org">Fameline Holding Group · Limassol, Cyprus</p>
-              <ul class="timeline__points">
-                <li>Design, build, and maintain WordPress sites with Elementor Pro, WPBakery &amp; other page builders.</li>
-                <li>Maintain and develop MODX Revolution sites across the group's brands — edits, updates, and new content.</li>
-                <li>Manage a portfolio of 50+ live websites — updates, performance, uptime, and security across the group's brands.</li>
-                <li>Develop custom websites in VS Code with Git/GitHub and AI-assisted coding workflows (e.g. Claude Code).</li>
-                <li>Set up tracking &amp; analytics with Google Tag Manager and Google Analytics.</li>
-                <li>Grew the company's LinkedIn audience from ~1,000 to 7,500+ targeted maritime-industry followers.</li>
-                <li>Schedule the group's social media and build &amp; send email campaigns in Mailchimp and Brevo.</li>
-                <li>Plan and run paid campaigns on Google Ads (Search, Display, Video, Demand Gen &amp; Performance Max), Facebook, Instagram &amp; LinkedIn — 440K+ impressions and 16K+ clicks/engagements across the group's brands.</li>
-                <li>Help run the group's flagship events — the East Med Marine &amp; Offshore Exhibition and the Fameline Offshore Sailing Regatta — and CSR campaigns like Movember and World Cancer Day, scheduling the social posts and email.</li>
-              </ul>
-            </li>
-
-            <li class="timeline__item reveal" data-reveal>
-              <div class="timeline__dot"></div>
-              <p class="timeline__period">Sep 2023 – Feb 2025</p>
-              <h3 class="timeline__role">Junior Digital Marketing Officer</h3>
-              <p class="timeline__org">Fameline Holding Group · Limassol, Cyprus</p>
-              <ul class="timeline__points">
-                <li>Built and updated WordPress websites and landing pages for the group's brands.</li>
-                <li>Created graphics and scheduled social media posts to support marketing campaigns.</li>
-                <li>Helped with the group's events and awareness campaigns — scheduling social posts and sending email campaigns.</li>
-                <li>Supported day-to-day digital marketing operations across multiple channels.</li>
-              </ul>
-            </li>
-
-            <li class="timeline__item reveal" data-reveal>
-              <div class="timeline__dot"></div>
-              <p class="timeline__period">Sep 2022 – Dec 2022</p>
-              <h3 class="timeline__role">Multimedia Graphic Designer (Internship)</h3>
-              <p class="timeline__org">MindLab · Limassol, Cyprus</p>
-              <ul class="timeline__points">
-                <li>Developed dynamic WordPress websites end to end, from concept to launch.</li>
-                <li>Curated and enhanced the company's social media channels, boosting visibility and engagement.</li>
-                <li>Created persuasive content and targeted campaigns that contributed to increased sales.</li>
-                <li>Captured product photography to strengthen the brand's visual identity.</li>
-              </ul>
-            </li>
-          </ol>
+      </div>
+      <div class="events">
+        <div class="event" data-drift="-6">
+          <div class="meta">Exhibition · Apr 2025 · Limassol</div>
+          <h3>East Med Marine &amp; Offshore Exhibition</h3>
+          <p>Flagship maritime expo. I help run it: social scheduling, email campaigns, and its paid ads.</p>
+          <span class="ghost" aria-hidden="true">Expo</span>
+          <div class="estats"><span class="estat">11th edition</span><span class="estat">80+ exhibitors</span><span class="estat">Social · Email · Ads</span></div>
         </div>
-      </section>
-
-      <!-- ─────────────────── CERTIFICATIONS + EDUCATION ─────────────────── -->
-      <section class="section credentials" id="credentials" data-nav="experience">
-        <div class="container credentials__grid">
-          <div>
-            <div class="section__head section__head--tight">
-              <span class="section__index">06</span>
-              <h2 class="section__title">Certifications</h2>
-            </div>
-            <ul class="cred-list">
-              <li class="reveal" data-reveal>
-                <span class="cred-list__name">Artificial Intelligence for Business Executives</span>
-                <span class="cred-list__meta">Apriori Management Training Ltd · Oct 2024</span>
-              </li>
-              <li class="reveal" data-reveal>
-                <span class="cred-list__name">YouTube Music Assessment</span>
-                <span class="cred-list__meta">Google · Jun 2024 (valid to Dec 2025)</span>
-              </li>
-              <li class="reveal" data-reveal>
-                <span class="cred-list__name">Fundamentals of Digital Marketing</span>
-                <span class="cred-list__meta">Google · Jun 2024</span>
-              </li>
-              <li class="reveal" data-reveal>
-                <span class="cred-list__name">Google My Business</span>
-                <span class="cred-list__meta">Google · Jun 2024</span>
-              </li>
-              <li class="reveal" data-reveal>
-                <span class="cred-list__name">21st Advertising, Marketing, Media &amp; Communication Conference</span>
-                <span class="cred-list__meta">Certificate of Attendance · Jun 2024</span>
-              </li>
-              <li class="reveal" data-reveal>
-                <span class="cred-list__name">IGCSE English as a Second Language (Grade C)</span>
-                <span class="cred-list__meta">University of Cambridge</span>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <div class="section__head section__head--tight">
-              <span class="section__index">07</span>
-              <h2 class="section__title">Education</h2>
-            </div>
-            <ul class="cred-list">
-              <li class="reveal" data-reveal>
-                <span class="cred-list__name">BSc in Multimedia &amp; Graphic Arts</span>
-                <span class="cred-list__meta">Specialization in Multimedia</span>
-                <span class="cred-list__meta">Cyprus University of Technology · Sep 2019 – Mar 2023</span>
-              </li>
-            </ul>
-
-            <div class="section__head section__head--tight credentials__extra">
-              <h3 class="section__title section__title--sm">Volunteering &amp; Interests</h3>
-            </div>
-            <ul class="cred-list">
-              <li class="reveal" data-reveal>
-                <span class="cred-list__name">Active Volunteer — YoungShip Cyprus</span>
-                <span class="cred-list__meta">Supporting networking &amp; industry events for the local maritime community.</span>
-              </li>
-              <li class="reveal" data-reveal>
-                <span class="cred-list__name">Interests</span>
-                <span class="cred-list__meta">Playing bouzouki · PC gaming · Photography</span>
-              </li>
-            </ul>
-          </div>
+        <div class="event" data-drift="-14">
+          <div class="meta">Sailing · Sep 2024 · Limassol Marina</div>
+          <h3>Fameline Offshore Sailing Regatta</h3>
+          <p>Biennial charity regatta at Limassol Marina. I schedule its social posts and send the email campaigns.</p>
+          <span class="ghost" aria-hidden="true">Regatta</span>
+          <div class="estats"><span class="estat">7th edition</span><span class="estat">35+ yachts</span><span class="estat">250+ guests</span></div>
         </div>
-      </section>
+        <div class="event" data-drift="-24">
+          <div class="meta">Tennis · Mar 2024 · Limassol</div>
+          <h3>ITF World Tennis Tour Tournament</h3>
+          <p>ITF-sanctioned tournament for men and women, hosted by the group. Event support and social scheduling.</p>
+          <span class="ghost" aria-hidden="true">Tennis</span>
+          <div class="estats"><span class="estat">ITF World Tour</span><span class="estat">Men &amp; Women</span><span class="estat">Social</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <!-- ───────────────────────── CONTACT ───────────────────────── -->
-      <section class="section contact" id="contact" data-nav="contact">
-        <div class="container">
-          <div class="section__head section__head--center">
-            <span class="section__index">08</span>
-            <h2 class="section__title contact__title">
-              Let's build something<br /><em>worth ranking.</em>
-            </h2>
-            <p class="section__sub reveal" data-reveal>
-              Open to web development and digital marketing work. The fastest way to
-              reach me is email or LinkedIn.
-            </p>
-          </div>
-
-          <div class="contact__actions reveal" data-reveal>
-            <a class="contact__primary btn btn--primary" href="mailto:charfotiou@gmail.com" data-cursor="link">
-              charfotiou@gmail.com
-            </a>
-            <a class="btn btn--ghost" href="./Charalampos-Photiou-CV.pdf" target="_blank" rel="noopener" data-cursor="link">
-              View CV
-            </a>
-          </div>
-
-          <ul class="contact__links reveal" data-reveal>
-            <li>
-              <a href="tel:+35796425378" data-cursor="link">
-                <span class="contact__links-label">Phone</span>
-                <span class="contact__links-value">+357 96 425378</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/charalampos-fotiou-63120a286/" target="_blank" rel="noopener" data-cursor="link">
-                <span class="contact__links-label">LinkedIn</span>
-                <span class="contact__links-value">charalampos-fotiou</span>
-              </a>
-            </li>
-            <li>
-              <a href="mailto:charfotiou@gmail.com" data-cursor="link">
-                <span class="contact__links-label">Email</span>
-                <span class="contact__links-value">charfotiou@gmail.com</span>
-              </a>
-            </li>
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience" aria-label="Experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <div class="xp">
+      <span class="spine" aria-hidden="true"><i id="xpline"></i></span>
+      <div class="leg" data-year="2025">
+        <span class="when">FEB 2025 — NOW</span>
+        <div>
+          <h3>Digital Marketing Executive</h3>
+          <p class="org">Fameline Holding Group · Limassol, Cyprus</p>
+          <ul>
+            <li>Manage 50+ live websites — updates, performance, uptime, security.</li>
+            <li>Develop custom sites in VS Code with Git/GitHub and AI-assisted workflows (Claude Code).</li>
+            <li>Tracking &amp; analytics with Google Tag Manager and Google Analytics.</li>
+            <li>Grew company LinkedIn ~1,000 → 7,500+ targeted maritime followers.</li>
+            <li>Paid campaigns on Google Ads, Facebook, Instagram &amp; LinkedIn — 440K+ impressions, 16K+ clicks.</li>
+            <li>Run marketing for flagship events and CSR campaigns (Movember, World Cancer Day).</li>
           </ul>
         </div>
-      </section>
-    </main>
-
-    <!-- ───────────────────────── FOOTER ───────────────────────── -->
-    <footer class="footer">
-      <div class="container footer__inner">
-        <span class="footer__brand">Charalampos&nbsp;Photiou</span>
-        <span class="footer__note">
-          Web Developer &amp; Digital Marketing Executive · Limassol, Cyprus
-        </span>
-        <span class="footer__credit">
-          © <span id="year">2026</span> · Built with vanilla JS, GSAP &amp; Lenis
-        </span>
       </div>
-    </footer>
-  </body>
+      <div class="leg" data-year="2023">
+        <span class="when">SEP 2023 — FEB 2025</span>
+        <div>
+          <h3>Junior Digital Marketing Officer</h3>
+          <p class="org">Fameline Holding Group · Limassol, Cyprus</p>
+          <ul>
+            <li>Built and updated WordPress websites and landing pages for the group's brands.</li>
+            <li>Created graphics and scheduled social posts supporting campaigns.</li>
+            <li>Helped run events and awareness campaigns — social and email.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="leg" data-year="2022">
+        <span class="when">SEP 2022 — DEC 2022</span>
+        <div>
+          <h3>Multimedia Graphic Designer — Internship</h3>
+          <p class="org">MindLab · Limassol, Cyprus</p>
+          <ul>
+            <li>Developed dynamic WordPress sites end to end, concept to launch.</li>
+            <li>Grew social channels; created content and product photography.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="creds">
+      <div>
+        <h3>Certifications</h3>
+        <ul>
+          <li><div class="t">AI for Business Executives</div><div class="s">Apriori Management Training · Oct 2024</div></li>
+          <li><div class="t">Fundamentals of Digital Marketing</div><div class="s">Google · Jun 2024</div></li>
+          <li><div class="t">Google My Business</div><div class="s">Google · Jun 2024</div></li>
+          <li><div class="t">YouTube Music Assessment</div><div class="s">Google · Jun 2024</div></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Education &amp; Beyond</h3>
+        <ul>
+          <li><div class="t">BSc Multimedia &amp; Graphic Arts</div><div class="s">Cyprus University of Technology · 2019–2023</div></li>
+          <li><div class="t">Active Volunteer — YoungShip Cyprus</div><div class="s">Maritime community networking &amp; events</div></li>
+          <li><div class="t">Bouzouki · PC gaming · Photography</div><div class="s">Off-duty</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">Open to web &amp; marketing work <a href="#closer">Let's talk →</a></div>
+
+<!-- ============ CLOSER (clip 3) ============ -->
+<section id="closer" aria-label="Contact">
+  <video data-src="assets/video/closer.mp4" poster="assets/posters/closer.jpg" muted playsinline preload="none" loop aria-hidden="true"></video>
+  <div class="veil" aria-hidden="true"></div>
+  <div class="closer-content">
+    <h2>Let's build something <em>worth ranking.</em></h2>
+    <a class="mail" href="mailto:charfotiou@gmail.com?subject=Work%20enquiry%20—%20via%20portfolio">charfotiou@gmail.com</a>
+    <div class="closer-meta">
+      <div><span class="k">Phone</span><a href="tel:+35796425378">+357 96 425378</a></div>
+      <div><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/charalampos-fotiou-63120a286/" target="_blank" rel="noopener">charalampos-fotiou ↗</a></div>
+      <div><span class="k">Base</span><span>Limassol, Cyprus</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Charalampos Photiou</span>
+  <span>Limassol, Cyprus</span>
+</footer>
+
+<!-- GSAP + ScrollTrigger — native scroll (no smooth-scroll lib; wheel stays 1:1) -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<script>
+/* =========================================================
+   CONFIG
+   ========================================================= */
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isMobile = matchMedia('(max-width: 760px)').matches;
+const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
+const hasGsap = !!(window.gsap && window.ScrollTrigger);
+// pinned scrub scenes need a desktop pointer + a real viewport (iOS Safari
+// pins jank with currentTime seeking, so touch devices get the loop path)
+const canPin = hasGsap && !isMobile && finePointer && !reduceMotion && innerHeight >= 620;
+
+/* =========================================================
+   PROJECTS — from the CV; single source of truth
+   ========================================================= */
+const PROJECTS = [
+  {n:"Fameline Holding Group",u:"https://fhg.global/",cat:"Corporate · Maritime",p:"WordPress",s:"wordpress",img:"fhg"},
+  {n:"Fameline Mission Solutions",u:"https://fameline-ms.global/",cat:"Government & Defence",p:"WordPress",s:"wordpress",img:"fameline-ms"},
+  {n:"OneNet Group",u:"https://onenet.group/",cat:"IT & Connectivity",p:"WordPress",s:"wordpress",img:"onenet"},
+  {n:"MIE Group",u:"https://miegroup.global/",cat:"Marine Equipment",p:"WordPress",s:"wordpress",img:"mie"},
+  {n:"Navichem",u:"https://navi-chem.com/",cat:"Marine Chemicals",p:"WordPress",s:"wordpress",img:"navichem"},
+  {n:"Volvelle",u:"https://volvelle.eu/",cat:"Supply-Tech",p:"WordPress",s:"wordpress",img:"volvelle"},
+  {n:"Global STSS",u:"https://globalstss.com/",cat:"Sealing Solutions",p:"WordPress",s:"wordpress",img:"globalstss"},
+  {n:"Euploia Partners",u:"https://euploiapartners.com/",cat:"Private Equity",p:"WordPress",s:"wordpress",img:"euploia"},
+  {n:"Elite Blue Group",u:"https://eliteblue.global/",cat:"Spare Parts",p:"WordPress",s:"wordpress",img:"eliteblue"},
+  {n:"BWSS",u:"https://bwss.global/",cat:"Ballast-Water",p:"WordPress",s:"wordpress",img:"bwss"},
+  {n:"NorthTide",u:"https://northtide.global/",cat:"Underwater Services",p:"WordPress",s:"wordpress",img:"northtide"},
+  {n:"Kozy Developers",u:"https://kozy.cy/",cat:"Real Estate",p:"WordPress",s:"wordpress",img:"kozy"},
+  {n:"Fameline Energy",u:"https://fameline-energy.com/",cat:"Energy",p:"MODX",s:"modx",img:"fameline-energy"},
+  {n:"Heri Me Heri",u:"https://herimeheri.com/",cat:"Charity Foundation",p:"MODX",s:"modx",img:"herimeheri"},
+  {n:"MIE Services",u:"https://mieservices.global/",cat:"Marine Services",p:"MODX",s:"modx",img:"mieservices"},
+  {n:"MIE Overseas",u:"https://mieoverseas.global/",cat:"Marine Trading",p:"MODX",s:"modx",img:"mieoverseas"},
+  {n:"Sheerline",u:"https://sheerline.global/",cat:"Marine Safety",p:"MODX",s:"modx",img:"sheerline"},
+  {n:"HSS Marine Safety",u:"https://hss-marinesafety.global/",cat:"Marine Safety",p:"MODX",s:"modx",img:"hss-marinesafety"},
+  {n:"Vessel Marine Services",u:"https://vesselmarine.global/",cat:"Marine Services",p:"MODX",s:"modx",img:"vesselmarine"},
+  {n:"EMS",u:"https://ems-spares.de/",cat:"Marine Spares",p:"MODX",s:"modx",img:"ems-spares"},
+  {n:"Triangle Marine Services",u:"https://tmservices.eu/",cat:"Marine Services",p:"MODX",s:"modx",img:"tmservices"},
+  {n:"Medisera Limited",u:"https://medisera.eu/",cat:"Medical Supplies",p:"MODX",s:"modx",img:"medisera"},
+  {n:"Euploia Drydocks",u:"https://euploia.eu/",cat:"Drydocks & Repair",p:"MODX",s:"modx",img:"euploia-drydocks"},
+  {n:"Riomar Services",u:"https://riomar.global/",cat:"Marine Services",p:"MODX",s:"modx",img:"riomar"},
+  {n:"Armonia Trading",u:"https://armonia.cy/",cat:"Trading",p:"MODX",s:"modx",img:"armonia"},
+  {n:"Albaflux",u:"https://albaflux.com/",cat:"Maritime Trade",p:"Custom · VS Code",s:"custom",img:"albaflux"},
+  {n:"Seaflux Logistics",u:"https://seaflux.global/",cat:"Maritime Logistics",p:"Custom · VS Code",s:"custom",img:"seaflux"},
+  {n:"BoltCargo Logistics",u:"https://bltc.global/",cat:"Marine Logistics",p:"Custom · VS Code",s:"custom",img:"boltcargo"},
+  {n:"Blue Sky Cargo",u:"https://bscl.global/",cat:"Marine Logistics",p:"Custom · VS Code",s:"custom",img:"bluesky-cargo"},
+  {n:"Tideway Cargo",u:"https://tidecl.global/",cat:"Marine Logistics",p:"Custom · VS Code",s:"custom",img:"tideway-cargo"},
+  {n:"ZenGlobal Cargo",u:"https://zencl.global/",cat:"Marine Logistics",p:"Custom · VS Code",s:"custom",img:"zenglobal"},
+];
+
+/* =========================================================
+   WORK GRID + FILTER
+   ========================================================= */
+const grid = document.getElementById('workgrid');
+grid.innerHTML = PROJECTS.map((p, i) => `
+  <a class="row" data-stack="${p.s}" data-img="assets/previews/${p.img}.jpg" data-plat="${p.p}"
+     href="${p.u}" target="_blank" rel="noopener">
+    <span class="idx">${String(i+1).padStart(2,'0')}</span>
+    <h3>${p.n}</h3>
+    <span class="cat">${p.cat}</span>
+    <span class="plat">${p.p}</span>
+    <span class="arrow">↗</span>
+  </a>`).join('');
+
+/* =========================================================
+   FEATURED — the six best, rendered as wall monitors.
+   The 3D scene itself is wired up in setupScrubScenes().
+   ========================================================= */
+const FEATURED = ['fhg','onenet','kozy','seaflux','albaflux'];
+const featList = FEATURED.map(k => PROJECTS.find(p => p.img === k));
+document.getElementById('htrack').insertAdjacentHTML('beforeend', featList.map((p, i) => `
+  <a class="panel" href="${p.u}" target="_blank" rel="noopener" aria-label="${p.n} — visit live site">
+    <span class="p-num" aria-hidden="true">${String(i+1).padStart(2,'0')}</span>
+    <figure><span class="frame"><img src="assets/previews/${p.img}.jpg" alt=""/></span></figure>
+    <div class="p-meta"><b>${p.n}</b><span>${p.cat} · ${p.p}</span><i>Visit ↗</i></div>
+  </a>`).join(''));
+
+/* floating preview follows the cursor over the list */
+(function setupPreview(){
+  if(matchMedia('(hover: none)').matches) return;   // touch: rows only
+  const box = document.getElementById('preview');
+  const img = box.querySelector('img');
+  const tag = box.querySelector('.tag');
+  // docked in the corner — only the image swaps, the box never moves
+  let scrollTween = null;
+  grid.addEventListener('mouseover', e => {
+    const row = e.target.closest('.row'); if(!row) return;
+    if(img.src.split('/').pop() !== row.dataset.img.split('/').pop()){
+      img.src = row.dataset.img;
+      if(hasGsap){
+        // swap-in flash + slow auto-scroll down the full-page screenshot,
+        // so the preview reads as the live site scrolling itself
+        if(scrollTween) scrollTween.kill();
+        gsap.fromTo(img, { opacity: .3, objectPosition: '50% 0%' }, { opacity: 1, duration: .3 });
+        scrollTween = gsap.to(img, { objectPosition: '50% 100%', duration: 7, ease: 'none', delay: .3 });
+      }
+    }
+    tag.textContent = row.dataset.plat;
+    if(hasGsap) gsap.to(box, { opacity: 1, y: 0, scale: 1, duration: .3, ease: 'power2.out', overwrite: true });
+    else { box.style.opacity = 1; box.style.transform = 'none'; }
+  });
+  const hide = () => hasGsap
+    ? gsap.to(box, { opacity: 0, y: 14, scale: .96, duration: .25, ease: 'power2.in', overwrite: true })
+    : (box.style.opacity = 0);
+  grid.addEventListener('mouseleave', hide);
+  // scrolling moves the page under a static pointer — mouseleave never
+  // fires, so hide on scroll too
+  addEventListener('scroll', hide, { passive: true });
+  // preload previews after idle so first hover is instant
+  const warm = () => PROJECTS.forEach(p => { const i = new Image(); i.src = `assets/previews/${p.img}.jpg`; });
+  'requestIdleCallback' in window ? requestIdleCallback(warm) : setTimeout(warm, 3000);
+})();
+
+const filters = document.getElementById('filters');
+const workcount = document.getElementById('workcount');
+function applyFilter(f){
+  let shown = 0;
+  grid.querySelectorAll('.row').forEach(c => {
+    const m = f === 'all' || c.dataset.stack === f;
+    c.classList.toggle('hide', !m); if(m) shown++;
+  });
+  workcount.textContent = `Showing ${shown} / ${PROJECTS.length} live sites`;
+}
+filters.addEventListener('click', e => {
+  const b = e.target.closest('.filter'); if(!b) return;
+  filters.querySelectorAll('.filter').forEach(x => x.setAttribute('aria-pressed', x === b));
+  applyFilter(b.dataset.filter);
+});
+applyFilter('all');
+
+/* =========================================================
+   NAV
+   ========================================================= */
+const nav = document.getElementById('nav');
+const navlinks = document.getElementById('navlinks');
+const navtoggle = document.getElementById('navtoggle');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 30), {passive:true});
+navtoggle.addEventListener('click', () => {
+  const open = navlinks.classList.toggle('open');
+  navtoggle.classList.toggle('open', open);
+  navtoggle.setAttribute('aria-expanded', open);
+});
+// Escape closes the mobile menu and returns focus to the toggle
+addEventListener('keydown', e => {
+  if(e.key === 'Escape' && navlinks.classList.contains('open')){
+    navlinks.classList.remove('open'); navtoggle.classList.remove('open');
+    navtoggle.setAttribute('aria-expanded', false); navtoggle.focus();
+  }
+});
+navlinks.addEventListener('click', e => {
+  if(e.target.tagName === 'A'){ navlinks.classList.remove('open'); navtoggle.classList.remove('open'); }
+});
+
+/* anchor links into a PINNED scene land at its final frame — otherwise
+   visitors arrive at frame 0 and don't know the content is further down */
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href^="#"]'); if(!a) return;
+  const id = a.getAttribute('href').slice(1); if(!id) return;
+  if(id === 'top'){                     // brand = very top of the opener
+    e.preventDefault();
+    scrollTo({ top: 0, behavior: 'smooth' });
+    return;
+  }
+  const st = (window.ScrollTrigger ? ScrollTrigger.getAll() : [])
+    .find(t => t.pin && t.trigger && t.trigger.id === id);
+  if(!st) return;                       // normal section → default anchor behavior
+  if(id === 'featured') return;         // monitor wall starts at frame 0 — land there
+  e.preventDefault();
+  // .85: content fully landed, but before the shutter starts closing
+  scrollTo({ top: st.start + (st.end - st.start) * .85, behavior: 'smooth' });
+});
+
+/* =========================================================
+   GSAP TIMELINES
+   ========================================================= */
+/* if the GSAP CDN is blocked, boot() degrades to a static readable page */
+if(hasGsap){
+  gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.config({ ignoreMobileResize: true });
+}
+
+// Native scroll — wheel stays 1:1 responsive. The video scrubs below
+// carry their own easing (scrub: .5), so motion still looks smooth.
+
+/* ---------- THE MASK ----------
+   One reveal device for the whole page: elements wipe upward out of a
+   bottom mask while rising — the hero title's own entrance, generalized.
+   No rotation, no z-depth, no opacity mush. */
+const MICRO = { y: 16, dur: .5, stagger: .05 };
+function reveal(targets, o = {}){
+  const els = gsap.utils.toArray(targets); if(!els.length) return;
+  gsap.fromTo(els,
+    { clipPath: 'inset(0% 0% 100% 0%)', y: o.y ?? 32 },
+    {
+      clipPath: 'inset(0% 0% 0% 0%)', y: 0,
+      duration: o.dur ?? .8, ease: 'power3.out',
+      stagger: o.stagger ?? .08,
+      clearProps: 'clipPath,transform',     // hover transforms work after
+      scrollTrigger: o.start === null ? undefined
+        : { trigger: o.trigger ?? els[0], start: o.start ?? 'top 88%' }
+    });
+}
+
+function setupReveals(){
+  document.querySelectorAll('h2').forEach(el => {
+    // .closer-content reveals as one block on every path — its h2 must
+    // not carry its own (possibly unreachable) trigger
+    if(el.closest('#closer')) return;
+    reveal(el);
+  });
+
+  reveal('#stats .stat', { trigger: '#stats', start: 'top 85%', stagger: .1 });
+  reveal('.highlights .highlight', { trigger: '.highlights' });
+
+  // work rows: micro mask, batched (grid is filterable)
+  ScrollTrigger.batch('.work-grid .row', {
+    start: 'top 94%',
+    onEnter: els => reveal(els, { ...MICRO, stagger: .04, start: null })
+  });
+
+  // free-scroll-only blocks — pinned scenes drive these themselves
+  if(!canPin){
+    reveal('.pillar');
+    gsap.utils.toArray('#featured .panel').forEach(s => reveal(s));
+    reveal('.camp-lead, .event');
+    reveal('.closer-content', { trigger: '#closer', start: 'top 55%' });
+  }
+
+  document.querySelectorAll('.leg').forEach(el => {
+    reveal(el);
+    // bullets: slide only — the parent mask already handles visibility
+    gsap.from(el.querySelectorAll('li'), {
+      x: -22, duration: .5, ease: 'power2.out', stagger: .07,
+      scrollTrigger: { trigger: el, start: 'top 78%' }
+    });
+  });
+  reveal('.creds > div');
+
+  // spine draw (kept)
+  gsap.to('#xpline', {
+    scaleY: 1, ease: 'none',
+    scrollTrigger: { trigger: '.xp', start: 'top 75%', end: 'bottom 55%', scrub: true }
+  });
+
+  if(!canPin && !isMobile){
+    // free-scroll fallbacks: gentle parallax instead of scrub scenes.
+    // (not on phones — the scaled videos expand Chrome's mobile layout
+    // viewport and the whole page renders zoomed out)
+    gsap.fromTo('#pillars .bg video', { yPercent: -8, scale: 1.12 }, {
+      yPercent: 8, ease: 'none',
+      scrollTrigger: { trigger: '#pillars', start: 'top bottom', end: 'bottom top', scrub: true }
+    });
+    gsap.fromTo('#closer video', { scale: 1.18 }, {
+      scale: 1, ease: 'none',
+      scrollTrigger: { trigger: '#closer', start: 'top bottom', end: 'center center', scrub: true }
+    });
+  }
+}
+
+/* ---------- PINNED SCRUB SCENES ----------
+   The hero pattern, applied to the rest of the page:
+   scroll = playhead. Videos are all-intra encoded so
+   currentTime seeking is instant. */
+/* lazy blob loader: download only when the scene is ~2.5 screens away
+   (ScrollTrigger-based, so pin spacers are respected). Blob = seekable on
+   servers without Range support; on fetch failure fall back to direct src. */
+function lazyBlob(video, src, trigger){
+  let started = false;
+  const load = () => {
+    if(started) return; started = true;
+    fetch(src).then(r => r.blob()).then(b => {
+      video.src = URL.createObjectURL(b); video.load();
+    }).catch(() => { video.src = src; video.load(); });
+  };
+  ScrollTrigger.create({ trigger, start: 'top 280%', once: true, onEnter: load });
+}
+
+function makeScrub(video, src, trigger, pinPct, contentFn){
+  video.removeAttribute('loop'); video.removeAttribute('autoplay');
+  video.pause();
+  lazyBlob(video, src, trigger);
+  const proxy = { p: 0 };
+  const tl = gsap.timeline({
+    defaults: { ease: 'none' },
+    scrollTrigger: { trigger, start: 'top top', end: '+=' + pinPct + '%', pin: true, scrub: .5 }
+  });
+  tl.to(proxy, { p: 1, duration: 1, onUpdate(){
+    if(video.readyState >= 1 && video.duration){
+      video.currentTime = proxy.p * Math.max(0, video.duration - .05);
+    }
+  }}, 0);
+  if(contentFn) contentFn(tl);
+  return tl.scrollTrigger;
+}
+
+function setupScrubScenes(){
+  // SCENE 2 — pillars over scrubbed Builder clip
+  document.getElementById('pillars').classList.add('pinned');
+  makeScrub(document.querySelector('#pillars .bg video'),
+    'assets/video/builder_scrub.mp4', '#pillars', 260, tl => {
+      // two beats: head holds the viewport, wipes out upward, then the
+      // pillars wipe in on the cleared stage — nothing overflows 100vh
+      gsap.set('.pillars-head', { yPercent: -50, clipPath: 'inset(0% 0% 0% 0%)' });
+      gsap.set('.pillars-list', { yPercent: -50 });
+      gsap.set('.pillar', { clipPath: 'inset(0% 0% 100% 0%)', y: 40 });
+      tl.to('.pillars-head', { clipPath: 'inset(0% 0% 100% 0%)', y: -50, duration: .18, ease: 'power2.in' }, .18);
+      gsap.utils.toArray('.pillar').forEach((p, i) => {
+        tl.to(p, { clipPath: 'inset(0% 0% 0% 0%)', y: 0, duration: .16, ease: 'power2.out' }, .4 + i * .18);
+      });
+    });
+
+  // SCENE 2b — the long wall: scroll slides the whole gallery past you,
+  // 1px of scroll = 1px of wall. Panels stay huge and full-bright; each
+  // frame gets a lateral parallax as it crosses the viewport.
+  document.getElementById('featured').classList.add('pinned');
+  const track = document.getElementById('htrack');
+  const galfill = document.getElementById('galfill');
+  const dist = () => track.scrollWidth - innerWidth;
+  const gallery = gsap.to(track, {
+    x: () => -dist(), ease: 'none',
+    scrollTrigger: {
+      trigger: '#featured', start: 'top top',
+      end: () => '+=' + dist(), pin: true, scrub: .5,
+      invalidateOnRefresh: true,
+      onUpdate(self){ galfill.style.transform = `scaleX(${self.progress})`; }
+    }
+  });
+  // image is 114% of its frame — slide it as the panel crosses the screen
+  gsap.utils.toArray('#featured .panel').forEach(p => {
+    gsap.fromTo(p.querySelector('img'), { xPercent: -11 }, {
+      xPercent: 0, ease: 'none',
+      scrollTrigger: {
+        trigger: p, containerAnimation: gallery,
+        start: 'left right', end: 'right left', scrub: true
+      }
+    });
+  });
+
+  // SCENE 3 — campaigns: card stack. Each card slides up over the
+  // previous one; the covered card sinks back and dims.
+  const camp = document.getElementById('campaigns');
+  camp.classList.add('pinned');
+  const campfill = document.getElementById('campfill');
+  const cards = gsap.utils.toArray('#campaigns .camp-lead, #campaigns .event');
+  // start state: first card visible, rest parked below the stage
+  cards.forEach((c, i) => gsap.set(c, { yPercent: i === 0 ? 0 : 130, zIndex: i + 1 }));
+  const stack = gsap.timeline({
+    defaults: { ease: 'power1.inOut' },
+    scrollTrigger: {
+      trigger: '#campaigns', start: 'top top', end: '+=' + (cards.length - 1) * 90 + '%',
+      pin: true, scrub: .5,
+      onUpdate(self){ campfill.style.transform = `scaleX(${self.progress})`; }
+    }
+  });
+  cards.slice(1).forEach((c, i) => {
+    stack.to(c, { yPercent: 0, rotation: i % 2 ? 1.2 : -1.2, duration: 1 }, i)
+         .to(c, { rotation: 0, duration: .25 }, i + .75)          // settle flat
+         .to(cards[i], { scale: .92, opacity: .45, duration: 1 }, i);
+  });
+
+  // SCENE 4 — closer: scroll walks him toward camera, contact lands late
+  makeScrub(document.querySelector('#closer video'),
+    'assets/video/closer_scrub.mp4', '#closer', 220, tl => {
+      // same mask, scrubbed
+      gsap.set('.closer-content', { clipPath: 'inset(0% 0% 100% 0%)', y: 60 });
+      tl.to('.closer-content', { clipPath: 'inset(0% 0% 0% 0%)', y: 0, duration: .3, ease: 'power2.out' }, .55);
+    });
+}
+
+/* ---------- VIEWFINDER CURSOR ----------
+   Emerald dot follows the pointer; grows a label over work rows and
+   scales over interactive elements. Native cursor stays (usability). */
+function setupCursor(){
+  if(!finePointer || !hasGsap || reduceMotion) return;
+  const cur = document.createElement('div');
+  cur.id = 'cursor';
+  cur.innerHTML = '<span id="cursorlabel"></span>';
+  document.body.appendChild(cur);
+  const label = cur.firstChild;
+  const xTo = gsap.quickTo(cur, 'x', { duration: .18, ease: 'power2.out' });
+  const yTo = gsap.quickTo(cur, 'y', { duration: .18, ease: 'power2.out' });
+  addEventListener('pointermove', e => { xTo(e.clientX); yTo(e.clientY); }, { passive: true });
+  document.addEventListener('mouseover', e => {
+    const row = e.target.closest('.row, .panel');
+    const act = e.target.closest('a, button');
+    if(row){ label.textContent = 'VISIT ↗'; cur.className = 'label'; }
+    else if(act){ label.textContent = ''; cur.className = 'big'; }
+    else { label.textContent = ''; cur.className = ''; }
+  });
+  document.addEventListener('mouseleave', () => { cur.style.opacity = 0; });
+  document.addEventListener('mouseenter', () => { cur.style.opacity = 1; });
+}
+
+/* count-up stats */
+function setupCounters(){
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const target = +el.dataset.count;
+    const obj = { v: 0 };
+    gsap.to(obj, {
+      v: target, duration: 1.6, ease: 'power2.out',
+      scrollTrigger: { trigger: el, start: 'top 92%' },
+      onUpdate(){ el.textContent = Math.round(obj.v).toLocaleString('en-US'); }
+    });
+  });
+}
+
+/* marquee: infinite loop that speeds up with scroll velocity */
+function setupMarquee(){
+  const track = document.getElementById('mtrack'); if(!track) return;
+  const loop = gsap.to(track, { xPercent: -50, repeat: -1, duration: 24, ease: 'none' });
+  let lastY = scrollY, lastT = performance.now();
+  gsap.ticker.add(() => {
+    const now = performance.now(), dt = Math.max(now - lastT, 1);
+    const v = Math.abs(scrollY - lastY) / dt;               // px per ms
+    lastY = scrollY; lastT = now;
+    loop.timeScale(gsap.utils.clamp(1, 5, 1 + v * 2.5));
+  });
+}
+
+/* play/pause bg videos only when visible (battery-friendly) */
+function setupVideoSections(){
+  document.querySelectorAll('#pillars video, #closer video').forEach(v => {
+    new IntersectionObserver(es => {
+      es.forEach(en => {
+        if(en.isIntersecting){
+          if(!v.src && v.dataset.src) v.src = v.dataset.src;  // lazy loop load
+          v.play().catch(()=>{});
+        }else v.pause();
+      });
+    }, {threshold:.2}).observe(v);
+  });
+}
+
+/* =========================================================
+   BOOT
+   ========================================================= */
+(function boot(){
+  const feat = document.getElementById('featured');
+  if(!hasGsap || reduceMotion){
+    // static page: final values, looping videos, stacked featured cards
+    document.querySelectorAll('[data-count]').forEach(el => {
+      el.textContent = (+el.dataset.count).toLocaleString('en-US');
+    });
+    feat.classList.add('static');
+    setupVideoSections();
+    return;
+  }
+  feat.classList.toggle('static', !canPin);
+  // ORDER MATTERS: pins must exist before reveals so reveal start
+  // positions include the pin spacers (else every fade fires early)
+  if(canPin) setupScrubScenes();
+  else setupVideoSections();
+  setupReveals();
+  reveal('.pillars-head > *', { start: null, y: 40, dur: .9, stagger: .12 }); // opener intro
+  setupCursor();
+  setupCounters();
+  setupMarquee();
+  ScrollTrigger.refresh();
+})();
+</script>
+</body>
 </html>

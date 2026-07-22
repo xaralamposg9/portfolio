@@ -20,6 +20,7 @@ const BODY = '2B313B'
 const sectionTitle = (text) =>
   new Paragraph({
     spacing: { before: 260, after: 90 },
+    keepNext: true,          // never orphan a heading at the bottom of a page
     border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: 'D9DEE6', space: 4 } },
     children: [new TextRun({ text: text.toUpperCase(), bold: true, color: ACCENT, size: 18 })],
   })
@@ -28,6 +29,7 @@ const sectionTitle = (text) =>
 const jobHead = (role, date) =>
   new Paragraph({
     spacing: { before: 120, after: 0 },
+    keepNext: true,          // keep the role line with its org/bullets
     tabStops: [{ type: TabStopType.RIGHT, position: TabStopPosition.MAX }],
     children: [
       new TextRun({ text: role, bold: true, size: 21, color: INK }),

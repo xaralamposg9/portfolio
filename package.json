@@ -5,7 +5,9 @@
   "description": "Static portfolio site. The CV scripts regenerate the downloadable PDF/DOCX from cv/cv.html.",
   "scripts": {
     "cv": "node scripts/build-cv.mjs",
-    "cv:docx": "node scripts/build-cv-docx.mjs"
+    "cv:docx": "node scripts/build-cv-docx.mjs",
+    "cover": "node scripts/build-cover.mjs",
+    "cover:docx": "node scripts/build-cover-docx.mjs"
   },
   "devDependencies": {
     "docx": "^9.7.1",

@@ -1,0 +1,14 @@
+{
+  "name": "charalampos-photiou-portfolio",
+  "private": true,
+  "type": "module",
+  "description": "Static portfolio site. The CV scripts regenerate the downloadable PDF/DOCX from cv/cv.html.",
+  "scripts": {
+    "cv": "node scripts/build-cv.mjs",
+    "cv:docx": "node scripts/build-cv-docx.mjs"
+  },
+  "devDependencies": {
+    "docx": "^9.7.1",
+    "puppeteer": "^23.10.4"
+  }
+}

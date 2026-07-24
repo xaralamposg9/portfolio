@@ -733,6 +733,36 @@ footer{
   .leg{ grid-template-columns:1fr; gap:.6rem; }
   .creds{ grid-template-columns:1fr; }
   .pillar{ grid-template-columns:1fr; gap:.4rem; }
+
+  /* ---- pinned scrub scenes, phone-sized ----
+     phones now run the same scroll-scrub cinema as desktop; these compact
+     the scene layouts so everything fits a ~390x700 viewport */
+  /* each pillar shows solo (dealt one at a time by GSAP) — full card look */
+  #pillars.pinned .pillar{ padding:1.2rem 0; border-bottom:1px solid var(--hair-w); }
+  #pillars.pinned .pillar h2{ font-size:1.6rem; }
+  #pillars.pinned .pillar p{ font-size:.92rem; margin:.5rem 0 .8rem; }
+  #pillars.pinned .pillar .num{ padding-top:0; min-width:0; }
+  /* the wall: panels nearly full-width so the work stays big */
+  .htrack{ gap:7vw; padding-inline:6vw 12vw; }
+  .htrack .feat-head{ width:78vw; }
+  #featured.pinned .panel{ width:min(86vw, calc((100vh - 230px) * 1.55)); padding-top:2.6rem; }
+  #featured.pinned .p-num{ font-size:3.4rem; }
+  /* card stack: deck typography scaled to a 94vw card */
+  #campaigns.pinned .camp-grid{ height:min(520px,62vh); }
+  #campaigns.pinned .camp-lead{ padding:1.2rem 1.3rem; }
+  #campaigns.pinned .camp-lead h3{ font-size:1.15rem; margin:.5rem 0 .6rem; }
+  #campaigns.pinned .camp-lead p{ font-size:.85rem; margin-bottom:.8rem; }
+  #campaigns.pinned .formats{ margin-bottom:.9rem; }
+  /* 3 mini cells fit a 94vw card once the number drops under 1rem */
+  #campaigns.pinned .camp-nums{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+  #campaigns.pinned .camp-nums div{ padding:.5rem .55rem; border-top:0; border-left:1px solid var(--hair-w); }
+  #campaigns.pinned .camp-nums div:first-child{ border-left:0; }
+  #campaigns.pinned .camp-nums .n{ font-size:.95rem; }
+  #campaigns.pinned .camp-nums .l{ font-size:.56rem; }
+  #campaigns.pinned .event{ padding:1.2rem 2.4rem 1.2rem 1.3rem; }
+  #campaigns.pinned .event h3{ font-size:1.2rem; }
+  #campaigns.pinned .event p{ font-size:.85rem; }
+  #campaigns.pinned .event .ghost{ font-size:1.5rem; }
 }
 
 /* touch devices, ANY orientation — a phone held landscape is 844px wide,
@@ -1064,9 +1094,11 @@ const isMobile = matchMedia('(max-width: 760px)').matches
   || matchMedia('(pointer: coarse) and (max-width: 1020px)').matches;
 const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
 const hasGsap = !!(window.gsap && window.ScrollTrigger);
-// pinned scrub scenes need a desktop pointer + a real viewport (iOS Safari
-// pins jank with currentTime seeking, so touch devices get the loop path)
-const canPin = hasGsap && !isMobile && finePointer && !reduceMotion && innerHeight >= 700;
+// pinned scrub scenes run everywhere with a tall-enough viewport — touch
+// devices get normalizeScroll + all-intra 720p scrub encodes so the
+// currentTime seeking stays smooth. Short landscape phones fall back to
+// the loop path (the pinned layouts need vertical room).
+const canPin = hasGsap && !reduceMotion && innerHeight >= 560;
 
 /* =========================================================
    PROJECTS — from the CV; single source of truth
@@ -1271,6 +1303,9 @@ document.addEventListener('focusin', e => {
 if(hasGsap){
   gsap.registerPlugin(ScrollTrigger);
   ScrollTrigger.config({ ignoreMobileResize: true });
+  // touch: route scrolling through GSAP so pins don't fight the mobile
+  // address bar / momentum scroll (the classic iOS pin-jitter fix)
+  if(!finePointer && !reduceMotion) ScrollTrigger.normalizeScroll(true);
 }
 
 // Native scroll — wheel stays 1:1 responsive. The video scrubs below
@@ -1396,21 +1431,40 @@ function makeScrub(video, src, trigger, pinPct, contentFn){
 }
 
 function setupScrubScenes(){
+  // phones scrub the 720p all-intra re-encode (~3MB vs ~6MB)
+  const scrubSrc = s => isMobile ? s.replace('_scrub.mp4', '_scrub_720.mp4') : s;
+
   // SCENE 2 — pillars over scrubbed Builder clip
   document.getElementById('pillars').classList.add('pinned');
   makeScrub(document.querySelector('#pillars .bg video'),
-    'assets/video/builder_scrub.mp4', '#pillars', 260, tl => {
+    scrubSrc('assets/video/builder_scrub.mp4'), '#pillars', 260, tl => {
       // two beats: head holds the viewport, wipes out upward, then the
       // pillars wipe in on the cleared stage — nothing overflows 100vh
       gsap.set('.pillars-head', { yPercent: -50, clipPath: 'inset(0% 0% 0% 0%)' });
       gsap.set('.pillars-list', { yPercent: -50 });
-      gsap.set('.pillar', { clipPath: 'inset(0% 0% 100% 0%)', y: 40 });
-      tl.to('.pillars-head', { clipPath: 'inset(0% 0% 100% 0%)', y: -50, duration: .18, ease: 'power2.in' }, .18);
-      // pillars start while the head is still finishing its wipe — a gap
-      // here reads as a blank, broken screen mid-scroll
-      gsap.utils.toArray('.pillar').forEach((p, i) => {
-        tl.to(p, { clipPath: 'inset(0% 0% 0% 0%)', y: 0, duration: .16, ease: 'power2.out' }, .32 + i * .18);
-      });
+      const pillars = gsap.utils.toArray('.pillar');
+      if(isMobile){
+        // phones: the full 4-pillar list can't fit a narrow screen —
+        // deal the pillars one at a time, each centered solo
+        gsap.set('.pillar', { position: 'absolute', left: 0, right: 0, top: '50%',
+          yPercent: -50, clipPath: 'inset(0% 0% 100% 0%)', y: 40 });
+        tl.to('.pillars-head', { clipPath: 'inset(0% 0% 100% 0%)', y: -50, duration: .14, ease: 'power2.in' }, .16);
+        const w = .68 / pillars.length;   // scrub window per pillar after .3
+        pillars.forEach((p, i) => {
+          const at = .3 + i * w;
+          tl.to(p, { clipPath: 'inset(0% 0% 0% 0%)', y: 0, duration: w * .4, ease: 'power2.out' }, at);
+          if(i < pillars.length - 1)      // last one stays for the unpin
+            tl.to(p, { clipPath: 'inset(100% 0% 0% 0%)', y: -40, duration: w * .35, ease: 'power2.in' }, at + w * .62);
+        });
+      } else {
+        gsap.set('.pillar', { clipPath: 'inset(0% 0% 100% 0%)', y: 40 });
+        tl.to('.pillars-head', { clipPath: 'inset(0% 0% 100% 0%)', y: -50, duration: .18, ease: 'power2.in' }, .18);
+        // pillars start while the head is still finishing its wipe — a gap
+        // here reads as a blank, broken screen mid-scroll
+        pillars.forEach((p, i) => {
+          tl.to(p, { clipPath: 'inset(0% 0% 0% 0%)', y: 0, duration: .16, ease: 'power2.out' }, .32 + i * .18);
+        });
+      }
     });
 
   // SCENE 2b — the long wall: scroll slides the whole gallery past you,
@@ -1468,7 +1522,7 @@ function setupScrubScenes(){
 
   // SCENE 4 — closer: scroll walks him toward camera, contact lands late
   makeScrub(document.querySelector('#closer video'),
-    'assets/video/closer_scrub.mp4', '#closer', 220, tl => {
+    scrubSrc('assets/video/closer_scrub.mp4'), '#closer', 220, tl => {
       // same mask, scrubbed
       gsap.set('.closer-content', { clipPath: 'inset(0% 0% 100% 0%)', y: 60 });
       tl.to('.closer-content', { clipPath: 'inset(0% 0% 0% 0%)', y: 0, duration: .3, ease: 'power2.out' }, .55);

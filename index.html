@@ -182,6 +182,10 @@ h1, h2{
 .scroll-cue .dot::after{ content:""; position:absolute; left:50%; top:2px; width:2px; height:2px;
   background:var(--em); border-radius:50%; transform:translateX(-50%); animation:cue 1.6s ease infinite; }
 @keyframes cue{ 0%{ top:2px; opacity:1; } 100%{ top:6px; opacity:0; } }
+/* fallback modes (phone / tablet / reduced motion): the opener flows over
+   several screens, so a cue anchored to the section bottom lands ~4 screens
+   down, after pillar 3 — meaningless. Pinned scenes re-enable it. */
+#pillars:not(.pinned) .scroll-cue{ display:none; }
 
 /* ============================================================
    STATS STRIP
@@ -335,6 +339,9 @@ h1, h2{
 }
 #featured.static .feat-head{ width:auto; margin-bottom:3rem; }
 #featured.static .panel{ width:100%; margin-bottom:3.5rem; }
+/* the 114% width is lateral-parallax headroom for the pinned wall —
+   static mode has no parallax, it would just crop the screenshot */
+#featured.static .panel img{ width:100%; }
 
 /* ============================================================
    WORK
@@ -520,6 +527,9 @@ h1, h2{
 .camp-progress i{
   position:absolute; inset:0; background:var(--em); transform:scaleX(0); transform-origin:left;
 }
+/* the fill is driven by the pinned card-stack scene only — on every
+   fallback path (phone / tablet / reduced motion) it's a dead empty bar */
+#campaigns:not(.pinned) .camp-progress{ display:none; }
 
 /* ============================================================
    EXPERIENCE
@@ -613,30 +623,9 @@ footer{
   .work-grid{ grid-template-columns:1fr; }
   .row .cat{ display:none; }
   .camp-grid{ grid-template-columns:1fr; }
-}
-@media (max-width:760px){
-  /* kill intrinsic min-width blowouts — these expand the whole mobile
-     layout viewport (page renders zoomed out, right edge cut) */
-  .stats-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .stat{ padding:1.4rem .8rem; }
-  .stat .n{ font-size:clamp(1.6rem,8vw,2.2rem); }
-  .camp-nums{ grid-template-columns:repeat(3,minmax(0,1fr)); }
-  .camp-nums .n{ font-size:1.25rem; }
-  .highlights{ grid-template-columns:1fr; }
 
-  /* readable micro-labels (desktop sizes fall under 12px on phones) */
-  .hud, .eyebrow{ font-size:.76rem; }
-  .row .idx{ font-size:.72rem; } .row .plat{ font-size:.68rem; }
-  .stat .l, .camp-nums .l{ font-size:.72rem; }
-  .event .meta, .estat, .fmt, .ptag{ font-size:.74rem; }
-  .leg .when, .creds .s, .closer-meta .k{ font-size:.76rem; }
-  .filter{ font-size:.78rem; padding:.7rem 1rem; }
-  footer{ font-size:.72rem; }
-
-  /* touch targets ≥44px */
-  .nav-toggle{ padding:.8rem; }
-  .cta-strip a, .closer-meta a, .mail{ display:inline-flex; align-items:center; min-height:44px; }
-
+  /* hamburger from 1020px down — the full desktop link row needs ~900px,
+     below that it collides with the brand and clips off the right edge */
   .nav-links{
     position:fixed; inset:0; background:rgba(6,10,9,.97); backdrop-filter:blur(8px);
     flex-direction:column; justify-content:center; gap:1.6rem;
@@ -648,7 +637,46 @@ footer{
   .nav-toggle.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
   .nav-toggle.open span:nth-child(2){ opacity:0; }
   .nav-toggle.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
-  .stats-grid{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width:760px){
+  /* kill intrinsic min-width blowouts — these expand the whole mobile
+     layout viewport (page renders zoomed out, right edge cut) */
+  .stats-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .stat{ padding:1.4rem .8rem; }
+  .stat .n{ font-size:clamp(1.6rem,8vw,2.2rem); }
+  .camp-nums{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .camp-nums .n{ font-size:1.25rem; }
+  .highlights{ grid-template-columns:1fr; }
+
+  /* Syne 800 uppercase is WIDE — the desktop clamp floor (2.2rem) lets
+     single words ("EXPERIENCE", "CAMPAIGNS") paint past the right edge
+     on phones. 7vw fits a 10-letter word inside the 32px gutters. */
+  h2{ font-size:clamp(1.5rem,7vw,2.2rem); }
+  /* closer h2 has its own (bigger) clamp — cap it so "SOMETHING" fits */
+  .closer-content h2{ font-size:clamp(1.7rem,7.8vw,2.6rem); }
+
+  /* event cards: on a 390px card the vertical ghost word ("REGATTA")
+     sits on top of the copy — shrink it and clear a lane for it */
+  .event{ padding-right:2.6rem; }
+  .event .ghost{ font-size:1.5rem; }
+
+  /* readable micro-labels (desktop sizes fall under 12px on phones) */
+  .hud, .eyebrow{ font-size:.76rem; }
+  .row .idx{ font-size:.72rem; } .row .plat{ font-size:.68rem; }
+  .stat .l, .camp-nums .l{ font-size:.72rem; }
+  .event .meta, .estat, .fmt, .ptag{ font-size:.74rem; }
+  .leg .when, .creds .s, .closer-meta .k{ font-size:.76rem; }
+  .filter{ font-size:.78rem; padding:.85rem 1.1rem; }  /* ≥44px tap height */
+  .hbtn{ padding:.85rem 1.2rem; }                       /* ≥44px tap height */
+  footer{ font-size:.72rem; }
+
+  /* touch targets ≥44px */
+  .nav-toggle{ padding:.8rem; }
+  .cta-strip a, .closer-meta a, .mail{ display:inline-flex; align-items:center; min-height:44px; }
+
+  /* (nav collapse rules live in the 1020px block — they cover phones too) */
+  /* (columns set once above with minmax(0,1fr) — a plain 1fr repeat here
+     would win the cascade and reintroduce intrinsic min-width blowouts) */
   .stat{ border-top:1px solid var(--hair-w); }
   .stat:nth-child(-n+2){ border-top:0; }
   .stat:nth-child(odd){ border-left:0; }
@@ -1202,10 +1230,11 @@ function setupReveals(){
     scrollTrigger: { trigger: '.xp', start: 'top 75%', end: 'bottom 55%', scrub: true }
   });
 
-  if(!canPin && !isMobile){
+  if(!canPin && finePointer){
     // free-scroll fallbacks: gentle parallax instead of scrub scenes.
-    // (not on phones — the scaled videos expand Chrome's mobile layout
-    // viewport and the whole page renders zoomed out)
+    // (fine pointer only — on ANY touch device, phone or tablet, the
+    // scaled videos expand Chrome's mobile layout viewport and the
+    // whole page renders zoomed out with the right edge cut off)
     gsap.fromTo('#pillars .bg video', { yPercent: -8, scale: 1.12 }, {
       yPercent: 8, ease: 'none',
       scrollTrigger: { trigger: '#pillars', start: 'top bottom', end: 'bottom top', scrub: true }

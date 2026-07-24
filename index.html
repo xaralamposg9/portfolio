@@ -618,7 +618,7 @@ h1, h2{
    ============================================================ */
 #closer{ position:relative; min-height:100vh; display:flex; align-items:flex-end; overflow:hidden; }
 #closer video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
-#closer .veil{ position:absolute; inset:0;
+#closer .veil{ position:absolute; inset:0; pointer-events:none;
   background:linear-gradient(180deg, rgba(6,10,9,.85) 0%, rgba(6,10,9,.25) 45%, rgba(6,10,9,.94) 100%); }
 .closer-content{ position:relative; z-index:2; width:100%; padding:0 var(--gutter) 8vh; }
 .closer-content h2{
@@ -658,6 +658,14 @@ footer{
   .row .cat{ display:none; }
   .camp-grid{ grid-template-columns:1fr; }
 
+  /* 4-across stat numbers ("7,500+", "€0.05") overflow their cells from
+     ~1020px down — on landscape phones the overflow even inflates the layout
+     viewport (whole page renders zoomed out). 2x2 fits everywhere. */
+  .stats-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .stat{ border-top:1px solid var(--hair-w); }
+  .stat:nth-child(-n+2){ border-top:0; }
+  .stat:nth-child(odd){ border-left:0; }
+
   /* hamburger from 1020px down — the full desktop link row needs ~900px,
      below that it collides with the brand and clips off the right edge */
   .nav-links{
@@ -675,19 +683,26 @@ footer{
 @media (max-width:760px){
   /* kill intrinsic min-width blowouts — these expand the whole mobile
      layout viewport (page renders zoomed out, right edge cut) */
-  .stats-grid{ grid-template-columns:repeat(2,minmax(0,1fr)); }
   .stat{ padding:1.4rem .8rem; }
-  .stat .n{ font-size:clamp(1.6rem,8vw,2.2rem); }
-  .camp-nums{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .stat .n{ font-size:clamp(1.5rem,7.5vw,2.2rem); }
+  /* 3-across leaves ~55px per cell on a 390 phone — "440K+" needs ~85px
+     and paints into the next cell, so stack them */
+  .camp-nums{ grid-template-columns:1fr; }
+  .camp-nums div{ border-left:0; border-top:1px solid var(--hair-w); padding:.85rem 1.1rem; }
+  .camp-nums div:first-child{ border-top:0; }
   .camp-nums .n{ font-size:1.25rem; }
   .highlights{ grid-template-columns:1fr; }
 
   /* Syne 800 uppercase is WIDE — the desktop clamp floor (2.2rem) lets
      single words ("EXPERIENCE", "CAMPAIGNS") paint past the right edge
      on phones. 7vw fits a 10-letter word inside the 32px gutters. */
-  h2{ font-size:clamp(1.5rem,7vw,2.2rem); }
-  /* closer h2 has its own (bigger) clamp — cap it so "SOMETHING" fits */
-  .closer-content h2{ font-size:clamp(1.7rem,7.8vw,2.6rem); }
+  h2{ font-size:clamp(1.4rem,7vw,2.2rem); }
+  /* .feat-head h2 has higher specificity than the h2 rule above — repeat
+     the phone clamp for it or "SELECTED" hits the screen edge at 320px */
+  .feat-head h2{ font-size:clamp(1.4rem,7vw,2.2rem); }
+  /* closer h2 has its own (bigger) clamp — cap it so "SOMETHING" fits
+     even on 320px screens */
+  .closer-content h2{ font-size:clamp(1.4rem,7.5vw,2.6rem); }
 
   /* event cards: on a 390px card the vertical ghost word ("REGATTA")
      sits on top of the copy — shrink it and clear a lane for it */
@@ -704,9 +719,9 @@ footer{
   .hbtn{ padding:.85rem 1.2rem; }                       /* ≥44px tap height */
   footer{ font-size:.72rem; }
 
-  /* touch targets ≥44px */
-  .nav-toggle{ padding:.8rem; }
-  .cta-strip a, .closer-meta a, .mail{ display:inline-flex; align-items:center; min-height:44px; }
+  /* long site names: on a portfolio the name IS the content — wrap
+     instead of ellipsizing ("Seaflux Logis…") */
+  .row h3{ white-space:normal; }
 
   /* (nav collapse rules live in the 1020px block — they cover phones too) */
   /* (columns set once above with minmax(0,1fr) — a plain 1fr repeat here
@@ -720,6 +735,25 @@ footer{
   .pillar{ grid-template-columns:1fr; gap:.4rem; }
 }
 
+/* touch devices, ANY orientation — a phone held landscape is 844px wide,
+   so width-only rules miss it. Tap targets ≥44px + the event ghost lane. */
+@media (pointer:coarse){
+  .nav-toggle{ padding:.8rem; }
+  .cta-strip a, .closer-meta a, .mail{ display:inline-flex; align-items:center; min-height:44px; }
+  .filter{ padding:.85rem 1.1rem; }
+  .nav-links a{ padding:.5rem 1rem; }
+  /* bigger hit area without shifting the fixed-nav layout */
+  .brand{ padding:.7rem 0; margin:-.7rem 0; }
+  /* event cards: clear a lane for the vertical ghost word ("REGATTA")
+     so it never sits on top of the copy */
+  .event{ padding-right:2.6rem; }
+  .event .ghost{ font-size:1.5rem; }
+}
+
+/* mobile has no JS-managed pin landings — default anchor jumps must clear
+   the fixed nav (~88px) */
+section{ scroll-margin-top:6rem; }
+
 /* reduced motion: no scrub, no grain, static states */
 @media (prefers-reduced-motion: reduce){
   .grain{ display:none; }
@@ -727,7 +761,7 @@ footer{
 }
 </style>
 </head>
-<body>
+<body id="top">
 
 <a class="skip" href="#work">Skip to work</a>
 <div class="grain" aria-hidden="true"></div>
@@ -1024,7 +1058,10 @@ footer{
    CONFIG
    ========================================================= */
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const isMobile = matchMedia('(max-width: 760px)').matches;
+/* "mobile" = narrow screen OR a touch device up to tablet width — a phone
+   held landscape is 844px wide but still needs the 720p video path */
+const isMobile = matchMedia('(max-width: 760px)').matches
+  || matchMedia('(pointer: coarse) and (max-width: 1020px)').matches;
 const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
 const hasGsap = !!(window.gsap && window.ScrollTrigger);
 // pinned scrub scenes need a desktop pointer + a real viewport (iOS Safari

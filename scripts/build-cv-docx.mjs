@@ -119,7 +119,7 @@ const doc = new Document({
       ]),
       body([
         new TextRun({ text: '18 live corporate websites designed and built', bold: true, size: 19, color: BODY }),
-        t(' — on WordPress + Elementor (Fameline Holding Group, Fameline Mission Solutions, OneNet Group, MIE Group, Euploia Partners, NorthTide, Kozy Developers) and hand-coded in VS Code (Albaflux, Seaflux and the Cargo Logistics brands). I also maintain 13 MODX Revolution sites (Fameline Energy, Sheerline, HSS Marine Safety, Euploia Drydocks, and more). These 31 sites are the selection I showcase from the 50+ web properties I manage — all with live links: xaralamposg9.github.io/portfolio'),
+        t(' — on WordPress + Elementor (Fameline Holding Group, Fameline Mission Solutions, OneNet Group, MIE Group, Euploia Partners, Global STSS, NorthTide, Kozy Developers) and hand-coded in VS Code (Albaflux, Seaflux and the Cargo Logistics brands). I also maintain 13 MODX Revolution sites (Fameline Energy, Sheerline, HSS Marine Safety, Euploia Drydocks, and more). These 31 sites are the selection I showcase from the 50+ web properties I manage — all with live links: xaralamposg9.github.io/portfolio'),
       ]),
 
       // Education & certs

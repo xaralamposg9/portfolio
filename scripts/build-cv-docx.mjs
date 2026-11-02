@@ -85,7 +85,7 @@ const doc = new Document({
 
       // Summary
       sectionTitle('Professional Summary'),
-      body([t('Web developer and digital marketing executive at Fameline Holding Group since 2023. Hand-codes custom production websites in VS Code with Git/GitHub and AI-assisted workflows (Claude Code), builds on WordPress (Elementor Pro, WPBakery, Divi), and maintains MODX Revolution sites — a portfolio of 50+ live websites. Runs paid media on Google Ads (Search to Performance Max), email marketing in Mailchimp and Brevo, SEO, and social — backed by Google and AI certifications.')]),
+      body([t('Web developer and digital marketing executive at Fameline Holding Group since 2023. Hand-codes custom production websites in VS Code with Git/GitHub and AI-assisted workflows (Claude Code), builds on WordPress (Elementor Pro, WPBakery, Divi), and maintains MODX Revolution sites — a portfolio of 50+ live websites. Builds workflow automations in n8n connecting Outlook (Microsoft Graph), Trello and the Claude API. Runs paid media on Google Ads (Search to Performance Max), email marketing in Mailchimp and Brevo, SEO, and social — backed by Google and AI certifications.')]),
 
       // Experience
       sectionTitle('Experience'),
@@ -94,6 +94,8 @@ const doc = new Document({
       bullet('Hand-code custom production websites in VS Code with Git/GitHub and AI-assisted workflows (Claude Code) — six live corporate sites shipped without a CMS.'),
       bullet('Design, build, and maintain WordPress sites (Elementor Pro, WPBakery & other builders); maintain MODX Revolution sites across the group’s brands.'),
       bullet('Manage a portfolio of 50+ live web properties across the group’s brands — updates, performance, uptime, and security; 31 selected sites are showcased with live links on my portfolio.'),
+      bullet('Built the marketing team’s task system in n8n: requests sent to the marketing@ mailbox (Microsoft Graph) become Trello cards automatically, sorted by company and type with keyword rules plus the Claude API, assigned by round robin or by who was addressed, with follow-up replies added as card comments.'),
+      bullet('Added supporting n8n workflows (assignment emails, a per-person team overview board, weekly and monthly Excel reports with on-time rates, error alerts), migrated all Microsoft Planner tasks to Trello, and set up 5-minute uptime monitoring for 12 company websites.'),
       bullet('Set up tracking & analytics with Google Tag Manager and Google Analytics 4 (GA4).'),
       bullet('Optimise page speed across the portfolio — flagship sites score 90+ on mobile Lighthouse performance (fhg.global 94, albaflux.com 90).'),
       bullet('Plan and run paid campaigns on Google Ads (Search, Display, Video, Demand Gen & Performance Max), Meta & LinkedIn — 440K+ impressions and 16K+ clicks at a 3.6% average interaction rate.'),
@@ -136,6 +138,7 @@ const doc = new Document({
       body([new TextRun({ text: 'Web Development: ', bold: true, size: 19, color: INK }), t('WordPress (Elementor Pro, WPBakery, Divi), MODX Revolution, WooCommerce, HTML/CSS, JavaScript, responsive / mobile-first, page-speed optimization, Git & GitHub, VS Code, AI-assisted coding, website maintenance, cPanel / DNS.')]),
       body([new TextRun({ text: 'Marketing & SEO: ', bold: true, size: 19, color: INK }), t('Technical & on-page SEO, Google Ads, Meta & LinkedIn Ads, paid social, social media management & scheduling, email marketing (Mailchimp, Brevo), campaign management, Google Tag Manager, Google Analytics 4 (GA4), Google Business / local SEO, YouTube, audience growth.')]),
       body([new TextRun({ text: 'Design & Video: ', bold: true, size: 19, color: INK }), t('Photoshop, Illustrator, Premiere Pro, After Effects, DaVinci Resolve, Figma, Adobe XD, logo design, typography, video editing, product photography.')]),
+      body([new TextRun({ text: 'Automation: ', bold: true, size: 19, color: INK }), t('n8n workflow automation, REST APIs, Microsoft Graph (Outlook), Trello API, Claude (Anthropic) API, JavaScript / Node.js scripting, self-hosted n8n deployment.')]),
       body([new TextRun({ text: 'AI & Tools: ', bold: true, size: 19, color: INK }), t('AI strategy & integration, data-driven decisions, business intelligence; ChatGPT, Google Gemini, Claude (Code, Cowork & design), Figma AI.')]),
 
       // Volunteering / Languages / Interests
